@@ -12,6 +12,7 @@ description: this is the CSS file for Assignment 2
 
 @import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Madimi+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root{
     --color-1: #EC5F5F;
@@ -42,7 +43,7 @@ ol{
 }
 
 .container{
-    width: 95%;
+    width: 90%;
     margin: auto;
 }
 
@@ -229,6 +230,8 @@ footer .social-medias{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
 }
 
 .home__available-img {
@@ -321,6 +324,7 @@ footer .social-medias{
     padding: 7px 14px;
     border-radius: 20px;
     color: white;
+    cursor: pointer;
 }
 
 .home__dish-img {
@@ -444,6 +448,165 @@ footer .social-medias{
 
 /* End of home page */
 
+/* Order page */
+.main__empty-cart{
+    min-height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main__empty-cart p{
+    font-size: 15px;
+}
+
+.main__empty-cart h1{
+    font-size: 32px;
+    margin-bottom: 3px;
+}
+
+.main__empty-cart a{
+    font-size: 17px;
+    text-decoration: underline;
+}
+
+.main__selected-cart .container{
+    margin-top: 100px;
+    gap: 20px;
+}
+
+.order__shopping-cart{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.order__shopping-cart h1{
+    text-align: center;
+    font-size: 30px;
+    color: var(--color-1);
+}
+
+.shopping__cart-item{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.shopping__cart-item .inner-title p{
+    font-size: 21px;
+    color: var(--color-1);
+    cursor: pointer;
+}
+
+.shopping__cart-item .inner-title{
+    margin-bottom: 13px;
+}
+
+.shopping__cart-img{
+    width: 25%;
+}
+
+.shopping__cart-img img{
+    width: 100%;
+}
+
+.shopping__cart-quantity{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 13px;
+    padding: 5px 10px;
+}
+
+.shopping__cart-item .inner-content p{
+    font-size: 17px;
+}
+
+.shopping__cart-quantity span{
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--color-1);
+    font-size: 18px;
+}
+
+.shopping__cart-total {
+    border-radius: 18px;
+    padding-inline: 15px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.shopping__cart-total h2{
+    font-size: 24px;
+}
+
+.shopping__cart-total p{
+    font-size: 23px;
+}
+
+.main__selected-cart .container form{
+    border-radius: 13px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 20px;
+}
+
+.main__selected-cart .container form *{
+    /* font-family: "Poppins", sans-serif; */
+    font-weight: 500;
+}
+
+.main__selected-cart .container form label{
+    font-size: 20px;
+}
+
+.main__selected-cart .container form input{
+    border: 1px solid #dddddd;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    height: 50px;
+    border-radius: 7px;
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.shipping-choice {
+    display: flex;
+    gap: 10px;
+    /* height: 15px; */
+    margin-bottom: 10px;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #dddddd;
+}
+
+.shipping-choice label{
+    /* margin-top: 2px; */
+    height: max-content;
+    font-size: 13px;
+}
+
+#delivery, #pick-up{
+    align-items: center;
+    width: 15px;
+    display: block;
+    height: 15px;
+    display: none;
+}
+
+/* End of order page */
+
+
 /* 
     Media Queries:
     To support responsive design, I
@@ -520,6 +683,22 @@ footer .social-medias{
         width: 31%;
     }
     /* End of Home locations section */
+
+    /* End of order page */
+    .main__selected-cart .container{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .order__shopping-cart {
+        width: min(30%, 350px);
+    }
+
+    .main__selected-cart .container form{
+        width: 67%;
+    }
+    /* End of order page */
+
 }
 
 @media (min-width: 1025px){
