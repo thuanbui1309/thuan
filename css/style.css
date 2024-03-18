@@ -13,6 +13,7 @@ description: this is the CSS file for Assignment 2
 @import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Madimi+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root{
     --color-1: #EC5F5F;
@@ -23,7 +24,9 @@ description: this is the CSS file for Assignment 2
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    /* font-family: "Nunito", sans-serif; */
     font-family: 'Madimi One';
+    /* font-weight: 800; */
     scroll-behavior: smooth;
     scroll-padding: 65px;
 }
@@ -198,7 +201,6 @@ footer .social-medias{
 /* Home page Available section */
 .home__availables-section{
     padding-block: 50px;
-    
 }
 
 .home__availables-section h2{
@@ -444,9 +446,93 @@ footer .social-medias{
 }
 
 /* End of Home page location section */
-
-
 /* End of home page */
+
+/* Register page */
+.register__title{
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 37px;
+    /* color: var(--color-1); */
+    /* font-weight: 800; */
+}
+
+.registration_form {
+    width: min(100%, 550px);
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 13px;
+    padding: 25px;
+}
+
+.required-mark {
+    color: var(--color-1);
+}
+
+.registration_form form *{
+    font-weight: 100;
+}
+
+fieldset{
+    border: none;
+}
+
+.registration_form form > label,
+.registration_form form legend
+{
+    font-size: 21px;
+}
+
+.registration_form form input[type="text"],
+.registration_form form input[type="password"],
+.registration_form form input[type="email"],
+.registration_form form select {
+    width: 100%;
+    height: 43px;
+    border-radius: 7px;
+    border: none;
+    background-color: #F1F3FB;
+    outline: none;
+    padding: 12px;
+    margin-top: 2.5px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.user_gender {
+    margin-bottom: 14px;
+}
+
+.gender-label,
+.favorite > label{
+    font-size: 14.7px;
+    font-weight: 100;
+}
+
+.register__button {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}
+
+.register__button * {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.register__button *:hover,
+.register__button input[type="submit"]{
+    background-color: #EC5F5F;
+    color: #F1F3FB;
+}
+
+/* End of register page */
 
 /* Order page */
 .main__empty-cart{
@@ -474,6 +560,7 @@ footer .social-medias{
 .main__selected-cart .container{
     margin-top: 100px;
     gap: 20px;
+    width: min(90%, 1124px);
 }
 
 .order__shopping-cart{
@@ -553,14 +640,28 @@ footer .social-medias{
     font-size: 23px;
 }
 
+
+
+
+
+
+
+
+
+
 .main__selected-cart .container form{
     border-radius: 13px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 20px;
 }
 
+.main__selected-cart h1{
+    text-align: center;
+    margin-block: 23px;
+    font-size: 27px;
+}
+
 .main__selected-cart .container form *{
-    /* font-family: "Poppins", sans-serif; */
     font-weight: 500;
 }
 
@@ -583,7 +684,6 @@ footer .social-medias{
 .shipping-choice {
     display: flex;
     gap: 10px;
-    /* height: 15px; */
     margin-bottom: 10px;
     align-items: center;
     padding: 10px;
@@ -591,7 +691,6 @@ footer .social-medias{
 }
 
 .shipping-choice label{
-    /* margin-top: 2px; */
     height: max-content;
     font-size: 13px;
 }
@@ -733,11 +832,6 @@ footer .social-medias{
 
     /* End of header */
 
-    /* End of header */
-
-    /* End of header */
-
-
     /* Home */
     /* Home hero section */
     .home__hero-section{
@@ -800,4 +894,25 @@ footer .social-medias{
     /* End of Home  menu section */
 
     /* End of home */
+
+    /* Register page */
+    .registration_form form > label,
+    .registration_form form legend
+    {
+        font-size: 22.5px;
+    }
+
+    .registration_form form input[type="text"],
+    .registration_form form input[type="password"],
+    .registration_form form input[type="email"],
+    .registration_form form select {
+        height: 45px;
+        font-size: 15px;
+    }
+
+    .gender-label,
+    .favorite > label{
+        font-size: 15px;
+    }
+    /* End of register page */
 }

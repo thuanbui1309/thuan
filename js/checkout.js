@@ -82,7 +82,7 @@ function remove(id) {
 // Only show checkout if cart is not empty
 if (cart !== null) {
     main__empty_cart.style.display = "none";
-    render_cart(cart);
+    // render_cart(cart);
 } else {
     main__selected_cart.style.display = "none";
 }
