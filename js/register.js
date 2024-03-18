@@ -71,7 +71,7 @@ let inputs = [
 ]
 
 // Show or hide input when data is valid or not 
-function show_error(input, index, error) {
+function show_error(input, error) {
     input.input_error.style.color = "#EC5F5F";
     input.input_error.innerText = input.error_msg[`${error}`];
 }
@@ -86,14 +86,14 @@ register_btn.addEventListener("click", (event) => {
 
 
     let errors = 0;
-    inputs.forEach((input, index) => {
+    inputs.forEach((input) => {
         if (input.input_type === "enter") {
             if (input.input_field.value.length === 0) {
-                show_error(input, index, "empty_error");
+                show_error(input, "empty_error");
                 errors += 1;
             } else {
                 if (input.input_field.value.match(input.input_pattern) ===  null){
-                    show_error(input, index, "wrong_format_error")
+                    show_error(input, "wrong_format_error")
                     errors += 1;
                 } else {
                     hide_error(input);
@@ -101,11 +101,11 @@ register_btn.addEventListener("click", (event) => {
             }
         } else if (input.input_type === "confirm") {
             if (input.input_field.value.length === 0) {
-                show_error(input, index, "empty_error");
+                show_error(input, "empty_error");
                 errors += 1;
             } else {
                 if (input.input_field.value !== document.getElementById("password").value) {
-                    show_error(input, index, "wrong_format_error");
+                    show_error(input, "wrong_format_error");
                     errors += 1;
                 } else {
                     hide_error(input);
@@ -119,7 +119,7 @@ register_btn.addEventListener("click", (event) => {
                 }
             });
             if (!is_checked) {
-                show_error(input, index, "empty_error");
+                show_error(input, "empty_error");
                 errors += 1;
             } else {
                 hide_error(input);
@@ -132,7 +132,7 @@ register_btn.addEventListener("click", (event) => {
             }
 
             if (!is_checked) {
-                show_error(input, index, "empty_error");
+                show_error(input, "empty_error");
                 errors += 1;
             } else {
                 hide_error(input);

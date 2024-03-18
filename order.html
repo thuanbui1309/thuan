@@ -52,10 +52,10 @@
         <section class="main__selected-cart" id="main__selected-cart">
             <div class="container">
                 <h1 class="order__title">My Order</h1>
-                <form action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php" method="POST" id="register_form">
-                    <label for="name">Name <span class="required-mark">*</span></label><br>
-                    <input type="text" id="username" placeholder=" 4 - 16 characters" name="Username">
-                    <p class="error" id="username_error">error msg</p>
+                <form action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php" method="POST" id="order_form">
+                    <label for="name_input">Name <span class="required-mark">*</span></label><br>
+                    <input type="text" id="name_input" name="Name">
+                    <p class="error" id="name_error">error msg</p>
 
                     <fieldset class="shipping_method">
                         <legend>Delivery or Pick Up <span class="required-mark">*</span></legend>
@@ -63,51 +63,53 @@
                         <label for="pickup">Pick Up</label><br>
                         <input type="radio" id="delivery" name="Shipping Method" value="Delivery">
                         <label for="delivery">Delivery</label>
-                        <p class="error" id="gender_error">error msg</p>
+                        <p class="error" id="shipping_error">error msg</p>
                     </fieldset>
 
                     <fieldset class="order__delivery-address" id="order__delivery-address">
-                        <legend>Delivery Address <span class="required-mark">*</span></legend>
-                        
-                        <label for="street_Address">Address <span class="required-mark">*</span></label>
-                        <input type="text" name="Street-Address" id="street_Address" pattern="^[a-zA-Z0-9]{1,40}+$">
+                        <!-- <legend>Delivery Address <span class="required-mark">*</span></legend>
+                            
+                        <label for="street_address">Address <span class="required-mark">*</span></label>
+                        <input type="text" name="Street-Address" id="street_address">
                         <p class="sub-error" id="address_error">error msg</p>
 
-                        <label for="suburb_Town">Suburb/Town<span class="required-mark"> *</span></label>
-                        <input type="text" name="Suburb-Town" id="suburb_Town" pattern="^[a-zA-Z0-9]{1,40}+$">
+                        <label for="suburb_town">Suburb/Town<span class="required-mark"> *</span></label>
+                        <input type="text" name="Suburb-Town" id="suburb_town">
                         <p class="sub-error" id="suburb_error">error msg</p>
 
                         <label for="postcode">Postcode</label>
-                        <input type="text" name="Postcode" id="postcode" pattern="^[0-9]{4}$" placeholder=" ex.1234">
-                        <p class="sub-error" id="postcode_error">error msg</p>
-
+                        <input type="text" name="Postcode" id="postcode" placeholder=" ex.1234">
+                        <p class="sub-error" id="postcode_error">error msg</p> -->
                     </fieldset>
-
+                    
                     <fieldset class="order__billing-address" id="order__billing-address">
-                        <legend>Billing Address<span class="required-mark">*</span></legend>
+                        <legend>Billing Address<span class="required-mark"> *</span></legend>
+
+                        <input type="radio" id="same_as_delivery">
+                        <label for="same_as_delivery">Same as delivery address</label><br>
+                        <p class="sub-error" id="same_as_address_error">error msg</p>
+
                         
-                        <label for="billing_street_address">Address</label>
-                        <input type="text" name="Billing-Street-Address" id="billing_street_address" pattern="^[a-zA-Z0-9]{1,40}+$">
+                        <label for="billing_street_address">Address<span class="required-mark"> *</span></label>
+                        <input type="text" name="Billing-Street-Address" id="billing_street_address">
                         <p class="sub-error" id="billing_address_error">error msg</p>
 
-                        <label for="billing_suburb_town">Suburb/Town</label>
-                        <input type="text" name="Billing-Suburb-Town" id="billing_suburb_town" pattern="^[a-zA-Z0-9]{1,40}+$">
+                        <label for="billing_suburb_town">Suburb/Town<span class="required-mark"> *</span></label>
+                        <input type="text" name="Billing-Suburb-Town" id="billing_suburb_town">
                         <p class="sub-error" id="billing_suburb_error">error msg</p>
 
-                        <label for="billing_postcode">Postcode</label>
-                        <input type="text" name="Billing Postcode" id="billing-postcode" pattern="^[0-9]{4}$" placeholder=" ex.1234">
+                        <label for="billing_postcode">Postcode<span class="required-mark"> *</span></label>
+                        <input type="text" name="Billing Postcode" id="billing_postcode" placeholder=" ex.1234">
                         <p class="sub-error" id="billing_postcode_error">error msg</p>
                         
                     </fieldset>
 
-
-
-                    <label for="phone-number">Contact Number<span class="required-mark">*</span></label><br>
-                    <input type="text" name="Phone Number" id="phone-umber" placeholder=" (000) 000 0000">
+                    <label for="phone-number">Contact Number<span class="required-mark"> *</span></label><br>
+                    <input type="text" name="Phone Number" id="phone-number" placeholder=" (000) 000 0000">
                     <p class="error" id="phone_error">error msg</p>
 
                     <label for="Email">Email <span class="required-mark">*</span></label><br>
-                    <input type="email" id="Email" name="Email" required placeholder=" ex: myname@gmail.com">
+                    <input type="email" id="Email" name="Email"placeholder=" ex: myname@gmail.com">
                     <p class="error" id="email_error">error msg</p>
 
                     <fieldset class="payment">
@@ -118,7 +120,7 @@
                         <input type="radio" id="pay-pickup" name="Payment Method" value="Pick-up">
                         <label for="pay-pickup">On Pickup</label><br>
 
-                        <p class="error" id="gender_error"></p>
+                        <p class="error" id="payment_error">erros msg</p>
                     </fieldset>
                     
                     <details class="shopping__cart">
@@ -158,7 +160,7 @@
         </div>
     </footer>
 
-    
+    <script src="js/checkout.js"></script>
     <script src="js/render-order.js"></script>
     <script src="js/script.js"></script>
 </body>

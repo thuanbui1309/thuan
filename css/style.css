@@ -12,22 +12,21 @@ description: this is the CSS file for Assignment 2
 
 @import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Madimi+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root{
-    --color-1: #FF0054;
-    /* --color-1: #EC5F5F; */
+    /* --color-1: #FF0054; */
+    /* --color-1: #DA3E52; */
+    --color-1: #EC5F5F;
+    /* --color-1: #EF476F; */
     --color-2: #FDF7F7;
+    /* D90368 */
 }
 
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    /* font-family: "Nunito", sans-serif; */
     font-family: 'Madimi One';
-    /* font-weight: 800; */
     scroll-behavior: smooth;
     scroll-padding: 65px;
 }
@@ -323,7 +322,7 @@ footer .social-medias{
 .order {
     font-size: 14px;
     width: max-content  ;
-    background-color: #FF0054;
+    background-color: var(--color-1);
     padding: 7px 14px;
     border-radius: 20px;
     color: white;
@@ -472,10 +471,6 @@ footer .social-medias{
     font-weight: 100;
 }
 
-fieldset{
-    border: none;
-}
-
 .registration_form form > label,
 .registration_form form legend
 {
@@ -503,8 +498,8 @@ fieldset{
     margin-bottom: 5px;
 }
 
-.user_gender {
-    margin-bottom: 5px;
+fieldset {
+    border: none;
 }
 
 .gender-label,
@@ -535,7 +530,7 @@ fieldset{
 .register__button input[type="submit"],
 .order__button *:hover,
 .order__button input[type="submit"]{
-    background-color: #FF0054;
+    background-color: var(--color-1);
     color: #F1F3FB;
 }
 
@@ -575,36 +570,28 @@ fieldset{
     margin-top: 25px;
 }
 
-.registration_form {
-    width: min(100%, 550px);
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 13px;
-    padding: 25px;
-}
-
 .required-mark {
     color: var(--color-1);
 }
 
-#register_form form *{
+.order__delivery-address{
+    display: none;
+}
+
+#order_form form *{
     font-weight: 100;
 }
 
-fieldset{
-    border: none;
-}
-
-#register_form > label,
-#register_form legend
+#order_form > label,
+#order_form legend
 {
     font-size: 21px;
 }
 
-#register_form input[type="text"],
-#register_form input[type="password"],
-#register_form input[type="email"],
-#register_form select {
+#order_form input[type="text"],
+#order_form input[type="password"],
+#order_form input[type="email"],
+#order_form select {
     width: 100%;
     height: 43px;
     border-radius: 7px;
@@ -625,48 +612,9 @@ fieldset{
 
 .sub-error{
     color: transparent;
-    font-size: 9px;
+    font-size: 10.5px;
     margin-bottom: 3.5px;  
 }
-
-fieldset{
-    margin-bottom: 5px;
-}
-
-.gender-label,
-.favorite > label{
-    font-size: 14px;
-    font-weight: 100;
-}
-
-.register__button {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 3px;
-}
-
-.register__button * {
-    padding: 5px 15px;
-    border: none;
-    border-radius: 4px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.register__button *:hover,
-.register__button input[type="submit"]{
-    background-color: #FF0054;
-    color: #F1F3FB;
-}
-
-
-
-
-
-
-
 
 .shopping__cart-total{
     list-style: none;
@@ -679,7 +627,7 @@ fieldset{
     align-items: center;
     color: #FFFFFF;
     cursor: pointer;
-    margin-block: 15px;
+    margin-block: 12px;
 }
 
 .shopping__cart-item{
