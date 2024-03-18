@@ -495,13 +495,17 @@ fieldset{
     outline: none;
     padding: 12px;
     margin-top: 2.5px;
-    margin-bottom: 14px;
     font-size: 13px;
     font-weight: 100;
 }
+.error{
+    color: transparent;
+    font-size: 11.5px;
+    margin-bottom: 5px;
+}
 
 .user_gender {
-    margin-bottom: 14px;
+    margin-bottom: 5px;
 }
 
 .gender-label,
