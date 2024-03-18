@@ -8,76 +8,72 @@ let inputs = [
         input_field: document.getElementById("username"),
         input_error: document.getElementById("username_error"),
         input_type: "enter",
-        input_pattern: /^[a-zA-Z0-9_]{4,16}$/
+        input_pattern: /^[a-zA-Z0-9_]{4,16}$/,
+        error_msg: {
+            empty_error: "* Please enter your username",
+            wrong_format_error: "* Your username should be between 4 and 16 characters"
+        }
     },
     {
         input_field: document.getElementById("password"),
         input_error: document.getElementById("password_error"),
         input_type: "enter",
-        input_pattern: /^.{8,}$/
+        input_pattern: /^.{9,}$/,
+        error_msg: {
+            empty_error: "* Please enter password",
+            wrong_format_error: "* Your password should be at least 8 characters"
+        }
     },
     {
         input_field: document.getElementById("confirm-password"),
         input_error: document.getElementById("confirm_password_error"),
         input_type: "confirm",
-        input_pattern: /^.{8,}$/
+        input_pattern: /^.{8,}$/,
+        error_msg: {
+            empty_error: "* Please enter confirm password",
+            wrong_format_error: "* Your password not match"
+        }
     },
     {
         input_field: document.getElementById("Email"),
         input_error: document.getElementById("email_error"),
         input_type: "enter",
-        input_pattern: /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/
+        input_pattern: /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/,
+        error_msg: {
+            empty_error: "* Please enter your email",
+            wrong_format_error: "* You must enter a valid email"
+        }
     },
-    {
+        {
         input_field: document.querySelectorAll('input[name="Gender"]'),
         input_error: document.getElementById("gender_error"),
-        input_type: "check"
+        input_type: "check",
+        error_msg: {
+            empty_error: "* Please enter your gender"
+        }
     },
     {
         input_field: document.getElementById("dietary"),
         input_error: document.getElementById("dietary_error"),
-        input_type: "select"
+        input_type: "select",
+        error_msg: {
+            empty_error: "* Please select your diet"
+        }
     },
     {
         input_field: document.querySelectorAll('input[name="Favorites-Ice-Creams[]"]'),
         input_error: document.getElementById("favorite_error"),
-        input_type: "check"
-    }
-]
-
-// Error messages for inputs
-let errors_msg = [
-    {
-        empty_error: "* Please enter your username",
-        wrong_format_error: "* Your username should be between 4 and 16 characters"
-    },
-    {
-        empty_error: "* Please enter password",
-        wrong_format_error: "* Your password should be at least 8 characters"
-    },
-    {
-        empty_error: "* Please enter confirm password",
-        wrong_format_error: "* Your password not match"
-    },
-    {
-        empty_error: "* Please enter your email",
-        wrong_format_error: "* You must enter a valid email"
-    },
-    {
-        empty_error: "* Please enter your gender"
-    },
-    {
-        empty_error: "* Please select your diet"
-    },
-    {
-        empty_error: "* Please select your favorite ice creams"
+        input_type: "check",
+        error_msg:  {
+            empty_error: "* Please select your favorite ice creams"
+        }
     }
 ]
 
 // Show or hide input when data is valid or not 
 function show_error(input, index, error) {
     input.input_error.style.color = "#EC5F5F";
-    input.input_error.innerText = errors_msg[index][`${error}`];
+    input.input_error.innerText = input.error_msg[`${error}`];
 }
 
 function hide_error(input) {
@@ -87,6 +83,7 @@ function hide_error(input) {
 // Validate form before submitting
 register_btn.addEventListener("click", (event) => {
     event.preventDefault();
+
 
     let errors = 0;
     inputs.forEach((input, index) => {
@@ -148,7 +145,6 @@ register_btn.addEventListener("click", (event) => {
         form.submit();
     }
 });
-
 
 // Reset all inputs and error messages
 reset_btn.addEventListener("click", () => {

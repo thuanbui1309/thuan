@@ -16,7 +16,8 @@ description: this is the CSS file for Assignment 2
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root{
-    --color-1: #EC5F5F;
+    --color-1: #FF0054;
+    /* --color-1: #EC5F5F; */
     --color-2: #FDF7F7;
 }
 
@@ -120,7 +121,7 @@ header img{
     text-align: center;
 }
 
-main{
+.main-index{
     margin-top: 55px;
     z-index: 1;
 }
@@ -270,7 +271,7 @@ footer .social-medias{
     text-align: center;
     font-size: 55px;
     margin-bottom: 30px;
-    color: #EC5F5F;
+    color: var(--color-1);
 }
 
 .home__dishes{
@@ -322,7 +323,7 @@ footer .social-medias{
 .order {
     font-size: 14px;
     width: max-content  ;
-    background-color: #EC5F5F;
+    background-color: #FF0054;
     padding: 7px 14px;
     border-radius: 20px;
     color: white;
@@ -383,7 +384,7 @@ footer .social-medias{
 
 .home__history-img img{
     width: min(100%, 450px);
-    filter: drop-shadow(3.5px 5px 0px #EC5F5F);
+    filter: drop-shadow(3.5px 5px 0px #FF0054);
 }
 /* End of Home page history section */
 
@@ -449,12 +450,10 @@ footer .social-medias{
 /* End of home page */
 
 /* Register page */
-.register__title{
+.register__title, .order__title{
     text-align: center;
     margin-bottom: 30px;
     font-size: 37px;
-    /* color: var(--color-1); */
-    /* font-weight: 800; */
 }
 
 .registration_form {
@@ -514,14 +513,16 @@ fieldset{
     font-weight: 100;
 }
 
-.register__button {
+.register__button,
+.order__button {
     margin-top: 10px;
     display: flex;
     justify-content: center;
     gap: 3px;
 }
 
-.register__button * {
+.register__button *,
+.order__button * {
     padding: 5px 15px;
     border: none;
     border-radius: 4px;
@@ -531,8 +532,10 @@ fieldset{
 }
 
 .register__button *:hover,
-.register__button input[type="submit"]{
-    background-color: #EC5F5F;
+.register__button input[type="submit"],
+.order__button *:hover,
+.order__button input[type="submit"]{
+    background-color: #FF0054;
     color: #F1F3FB;
 }
 
@@ -540,7 +543,7 @@ fieldset{
 
 /* Order page */
 .main__empty-cart{
-    min-height: calc(100vh - 50px);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -561,31 +564,130 @@ fieldset{
     text-decoration: underline;
 }
 
-.main__selected-cart .container{
+.main__selected-cart {
+    margin-top: 125px;
+    width: min(100%, 600px);
+    margin-inline: auto;
+    margin-bottom: 30px;
+}
+
+.order__title{
+    margin-top: 25px;
+}
+
+.registration_form {
+    width: min(100%, 550px);
+    margin: auto;
     margin-top: 100px;
-    gap: 20px;
-    width: min(90%, 1124px);
+    border-radius: 13px;
+    padding: 25px;
 }
 
-.order__shopping-cart{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-}
-
-.order__shopping-cart h1{
-    text-align: center;
-    font-size: 30px;
+.required-mark {
     color: var(--color-1);
+}
+
+#register_form form *{
+    font-weight: 100;
+}
+
+fieldset{
+    border: none;
+}
+
+#register_form > label,
+#register_form legend
+{
+    font-size: 21px;
+}
+
+#register_form input[type="text"],
+#register_form input[type="password"],
+#register_form input[type="email"],
+#register_form select {
+    width: 100%;
+    height: 43px;
+    border-radius: 7px;
+    border: none;
+    background-color: #F1F3FB;
+    outline: none;
+    padding: 12px;
+    margin-top: 2.5px;
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.error{
+    color: transparent;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.sub-error{
+    color: transparent;
+    font-size: 9px;
+    margin-bottom: 3.5px;  
+}
+
+fieldset{
+    margin-bottom: 5px;
+}
+
+.gender-label,
+.favorite > label{
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.register__button {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}
+
+.register__button * {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.register__button *:hover,
+.register__button input[type="submit"]{
+    background-color: #FF0054;
+    color: #F1F3FB;
+}
+
+
+
+
+
+
+
+
+.shopping__cart-total{
+    list-style: none;
+    background-color: var(--color-1);
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-block: 15px;
 }
 
 .shopping__cart-item{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 15px;
     padding: 20px;
-    margin-bottom: 20px;
-    align-items: center;
+    margin-top: 20px;
+    width: 100%;
 }
 
 .shopping__cart-item .inner-title p{
@@ -628,85 +730,6 @@ fieldset{
     color: var(--color-1);
     font-size: 18px;
 }
-
-.shopping__cart-total {
-    border-radius: 18px;
-    padding-inline: 15px;
-    margin-bottom: 40px;
-    align-items: center;
-}
-
-.shopping__cart-total h2{
-    font-size: 24px;
-}
-
-.shopping__cart-total p{
-    font-size: 23px;
-}
-
-
-
-
-
-
-
-
-
-
-.main__selected-cart .container form{
-    border-radius: 13px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    padding: 20px;
-}
-
-.main__selected-cart h1{
-    text-align: center;
-    margin-block: 23px;
-    font-size: 27px;
-}
-
-.main__selected-cart .container form *{
-    font-weight: 500;
-}
-
-.main__selected-cart .container form label{
-    font-size: 20px;
-}
-
-.main__selected-cart .container form input{
-    border: 1px solid #dddddd;
-    margin-bottom: 20px;
-    margin-top: 5px;
-    height: 50px;
-    border-radius: 7px;
-    width: 100%;
-    outline: none;
-    padding: 10px;
-    font-size: 15px;
-}
-
-.shipping-choice {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #dddddd;
-}
-
-.shipping-choice label{
-    height: max-content;
-    font-size: 13px;
-}
-
-#delivery, #pick-up{
-    align-items: center;
-    width: 15px;
-    display: block;
-    height: 15px;
-    display: none;
-}
-
 /* End of order page */
 
 
@@ -787,19 +810,7 @@ fieldset{
     }
     /* End of Home locations section */
 
-    /* End of order page */
-    .main__selected-cart .container{
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .order__shopping-cart {
-        width: min(30%, 350px);
-    }
-
-    .main__selected-cart .container form{
-        width: 67%;
-    }
+    /* Order page */
     /* End of order page */
 
 }

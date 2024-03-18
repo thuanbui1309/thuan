@@ -46,56 +46,99 @@
         <section class="main__empty-cart" id="main__empty-cart">
             <h1>Your Cart</h1>
             <p>Your cart is currently empty.</p>
-            <a href="index.html">Click here to continue shopping.</a>
+            <a href="index.html#home__menu-section">Click here to continue shopping.</a>
         </section>
 
         <section class="main__selected-cart" id="main__selected-cart">
             <div class="container">
+                <h1 class="order__title">My Order</h1>
+                <form action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php" method="POST" id="register_form">
+                    <label for="name">Name <span class="required-mark">*</span></label><br>
+                    <input type="text" id="username" placeholder=" 4 - 16 characters" name="Username">
+                    <p class="error" id="username_error">error msg</p>
 
-                <form action="http://mercury.swin. edu.au/it000000/cos1
-                0005/regtest.php" class="order__form" id="order__form">
-                    <h1>Your Order</h1>
-                    <article class="order__form-personal-info">
-                        <!-- <h2>Personal Information</h2> -->
+                    <fieldset class="shipping_method">
+                        <legend>Delivery or Pick Up <span class="required-mark">*</span></legend>
+                        <input type="radio" id="pickup" name="Shipping Method" value="Pick-up">
+                        <label for="pickup">Pick Up</label><br>
+                        <input type="radio" id="delivery" name="Shipping Method" value="Delivery">
+                        <label for="delivery">Delivery</label>
+                        <p class="error" id="gender_error">error msg</p>
+                    </fieldset>
 
-                        <label for="name">Guest name</label>
-                        <br>
-                        <input type="text" id="name">
-                        <br>
-    
-                        <label for="phone">Phone number</label>
-                        <br>
-                        <input type="" id="name">
-                        <br>
-    
-                        <label for="name">E-mail address</label>
-                        <br>
-                        <input type="text" id="name">
-                    </article>
+                    <fieldset class="order__delivery-address" id="order__delivery-address">
+                        <legend>Delivery Address <span class="required-mark">*</span></legend>
+                        
+                        <label for="street_Address">Address <span class="required-mark">*</span></label>
+                        <input type="text" name="Street-Address" id="street_Address" pattern="^[a-zA-Z0-9]{1,40}+$">
+                        <p class="sub-error" id="address_error">error msg</p>
 
-                    <article class="order__form-shipping-method">
-                        <div class="shipping-choice shipping-pickup">
-                            <input type="radio" id="delivery" name="shipping" value="delivery">
-                            <label for="delivery">Delivery</label><br>
+                        <label for="suburb_Town">Suburb/Town<span class="required-mark"> *</span></label>
+                        <input type="text" name="Suburb-Town" id="suburb_Town" pattern="^[a-zA-Z0-9]{1,40}+$">
+                        <p class="sub-error" id="suburb_error">error msg</p>
+
+                        <label for="postcode">Postcode</label>
+                        <input type="text" name="Postcode" id="postcode" pattern="^[0-9]{4}$" placeholder=" ex.1234">
+                        <p class="sub-error" id="postcode_error">error msg</p>
+
+                    </fieldset>
+
+                    <fieldset class="order__billing-address" id="order__billing-address">
+                        <legend>Billing Address<span class="required-mark">*</span></legend>
+                        
+                        <label for="billing_street_address">Address</label>
+                        <input type="text" name="Billing-Street-Address" id="billing_street_address" pattern="^[a-zA-Z0-9]{1,40}+$">
+                        <p class="sub-error" id="billing_address_error">error msg</p>
+
+                        <label for="billing_suburb_town">Suburb/Town</label>
+                        <input type="text" name="Billing-Suburb-Town" id="billing_suburb_town" pattern="^[a-zA-Z0-9]{1,40}+$">
+                        <p class="sub-error" id="billing_suburb_error">error msg</p>
+
+                        <label for="billing_postcode">Postcode</label>
+                        <input type="text" name="Billing Postcode" id="billing-postcode" pattern="^[0-9]{4}$" placeholder=" ex.1234">
+                        <p class="sub-error" id="billing_postcode_error">error msg</p>
+                        
+                    </fieldset>
+
+
+
+                    <label for="phone-number">Contact Number<span class="required-mark">*</span></label><br>
+                    <input type="text" name="Phone Number" id="phone-umber" placeholder=" (000) 000 0000">
+                    <p class="error" id="phone_error">error msg</p>
+
+                    <label for="Email">Email <span class="required-mark">*</span></label><br>
+                    <input type="email" id="Email" name="Email" required placeholder=" ex: myname@gmail.com">
+                    <p class="error" id="email_error">error msg</p>
+
+                    <fieldset class="payment">
+                        <legend>Payment method <span class="required-mark">*</span></legend>
+                        <input type="radio" id="online" name="Payment Method" value="Online">
+                        <label for="online">Online</label><br>
+
+                        <input type="radio" id="pay-pickup" name="Payment Method" value="Pick-up">
+                        <label for="pay-pickup">On Pickup</label><br>
+
+                        <p class="error" id="gender_error"></p>
+                    </fieldset>
+                    
+                    <details class="shopping__cart">
+                        <summary class="shopping__cart-total" id="shopping__cart-total">
+                        </summary>
+                        <div class="shopping__cart-items" id="shopping__cart-items">
                         </div>
+                    </details>
 
-                        <div class="shipping-choice shipping-delivery">
-                            <input type="radio" id="pick-up" name="shipping" value="pick-up">
-                            <label for="pick-up">Pickup</label><br>
-                        </div>
-                    </article>
+                    <div class="order__button">
+                        <input type= "submit" value="Order" id="order">
+                        &nbsp;
+                        <input type="reset" value="Reset" id="reset">
+                    </div>   
                 </form>
-
-                <div class="order__shopping-cart">
-                    <!-- <h1>My Order</h1> -->
-                    <div id="shopping__cart-content"></div>
-                    <article class="shopping__cart-total flex" id="shopping_cart-total"></article>
-                </div>
             </div>
         </section>
     </main>
 
-    <!-- <footer>
+    <footer>
         <div class="container flex">
             <a href="index.html" class="footer-logo">Sweet Life</a>
 
@@ -113,9 +156,10 @@
                 </a>
             </div>
         </div>
-    </footer> -->
+    </footer>
 
-    <script src="js/checkout.js"></script>
+    
+    <script src="js/render-order.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
