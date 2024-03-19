@@ -9,8 +9,8 @@ const autofill = document.getElementById("same_as_delivery");
 // List of inputs
 let inputs = [
     {
-        input_field: document.getElementById("name_input"),
-        input_error: document.getElementById("name_error"),
+        input_id: "name_input",
+        input_error: "name_error",
         input_type: "enter",
         input_pattern: /[a-zA-Z ]{1,20}$/,
         error_msg: {
@@ -19,17 +19,17 @@ let inputs = [
         }
     },
     {
-        input_field: document.querySelectorAll('input[name="Shipping Method"]'),
-        input_error: document.getElementById("shipping_error"),
+        input_id: "input[name=\"Shipping Method\"]",
+        input_error: "shipping_error",
         input_type: "check",
         error_msg: {
             empty_error: "* Please choose delivery option",
         }
     },
     {
-        input_field: document.getElementById("street_address"),
-        input_error: document.getElementById("address_error"),
-        input_type: "delivery-enter",
+        input_id: "street_address",
+        input_error: "address_error",
+        input_type: "enter",
         input_pattern: /^[a-zA-Z ]{1,40}$/,
         error_msg: {
             empty_error: "* Please enter your address",
@@ -38,9 +38,9 @@ let inputs = [
         input_name_attr: "Street-Address"
     },
     {
-        input_field: document.getElementById("suburb_town"),
-        input_error: document.getElementById("suburb_error"),
-        input_type: "delivery-enter",
+        input_id: "suburb_town",
+        input_error: "suburb_error",
+        input_type: "enter",
         input_pattern: /^[a-zA-Z ]{1,40}$/,
         error_msg: {
             empty_error: "* Please enter your suburb/town",
@@ -49,9 +49,9 @@ let inputs = [
         input_name_attr: "Suburb-Town"
     },
     {
-        input_field: document.getElementById("postcode"),
-        input_error: document.getElementById("postcode_error"),
-        input_type: "delivery-enter",
+        input_id: "postcode",
+        input_error: "postcode_error",
+        input_type: "enter",
         input_pattern: /^[0-9]{4}$/,
         error_msg: {
             empty_error: "* Please enter your address's postcode",
@@ -60,8 +60,8 @@ let inputs = [
         input_name_attr: "Postcode"
     },
     {
-        input_field: document.getElementById("billing_street_address"),
-        input_error: document.getElementById("billing_address_error"),
+        input_id: "billing_street_address",
+        input_error: "billing_address_error",
         input_type: "enter",
         input_pattern: /^[a-zA-Z ]{1,40}$/,
         error_msg: {
@@ -70,8 +70,8 @@ let inputs = [
         }
     },
     {
-        input_field: document.getElementById("billing_suburb_town"),
-        input_error: document.getElementById("billing_suburb_error"),
+        input_id: "billing_suburb_town",
+        input_error: "billing_suburb_error",
         input_type: "enter",
         input_pattern: /^[a-zA-Z ]{1,40}$/,
         error_msg: {
@@ -80,8 +80,8 @@ let inputs = [
         }
     },
     {
-        input_field: document.getElementById("billing_postcode"),
-        input_error: document.getElementById("billing_postcode_error"),
+        input_id: "billing_postcode",
+        input_error: "billing_postcode_error",
         input_type: "enter",
         input_pattern: /^[0-9]{4}$/,
         error_msg: {
@@ -90,8 +90,8 @@ let inputs = [
         }
     },
     {
-        input_field: document.getElementById("Email"),
-        input_error: document.getElementById("email_error"),
+        input_id: "Email",
+        input_error: "email_error",
         input_type: "enter",
         input_pattern: /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/,
         error_msg: {
@@ -100,8 +100,8 @@ let inputs = [
         }
     },
     {
-        input_field: document.getElementById("phone-number"),
-        input_error: document.getElementById("phone_error"),
+        input_id: "phone-number",
+        input_error: "phone_error",
         input_type: "enter",
         input_pattern: /^[0-9]{8,12}$/,
         error_msg: {
@@ -110,8 +110,8 @@ let inputs = [
         }
     },
     {
-        input_field: document.querySelectorAll('input[name="Payment Method"]'),
-        input_error: document.getElementById("payment_error"),
+        input_id: "input[name=\"Payment Method\"]",
+        input_error: "payment_error",
         input_type: "check",
         error_msg: {
             empty_error: "* Please choose payment method",
@@ -120,63 +120,67 @@ let inputs = [
 ]
 
 // Show or hide input when data is valid or not 
-function show_error(input, error) {
-    input.input_error.style.color = "#EC5F5F";
-    input.input_error.innerText = input.error_msg[`${error}`];
+function show_error(input_error, error_msg) {
+    error_element = document.getElementById(input_error);
+    error_element.style.color = "#EC5F5F";
+    error_element.innerText = error_msg;
 }
 
-function hide_error(input) {
-    input.input_error.style.color = "transparent";
+function hide_error(input_error) {
+    error_element = document.getElementById(input_error);
+    error_element.style.color = "transparent";
 }
 
 // Validate form before submitting
 order_btn.addEventListener("click", (event) => {
     event.preventDefault();
+
     let errors = 0;
     inputs.forEach((input) => {
-        if (input.input_field !== null) {
-            if (input.input_type === "enter" || input.input_type === "delivery-enter") {
-                if (input.input_field.value.length === 0) {
-                    show_error(input, "empty_error");
-                    console.log("error");
-    
+
+        let input_field = document.getElementById(input.input_id);
+
+        if (input.input_type === "enter" && input_field !== null) {
+            if (input_field.value.length === 0) {
+                show_error(input.input_error, input.error_msg["empty_error"]);
+                errors += 1;
+            } else {
+                if (input_field.value.match(input.input_pattern) ===  null){
+                    show_error(input.input_error, input.error_msg["wrong_format_error"])
                     errors += 1;
                 } else {
-                    if (input.input_field.value.match(input.input_pattern) ===  null){
-                        show_error(input, "wrong_format_error")
-                        errors += 1;
-                    } else {
-                        hide_error(input);
-                    }
-                }
-            } else if (input.input_type === "check") {
-                let is_checked = false;
-                input.input_field.forEach((check) => {
-                    if (check.checked) {
-                        is_checked = true;
-                    }
-                });
-                if (!is_checked) {
-                    show_error(input, "empty_error");
-                    errors += 1;
-                } else {
-                    hide_error(input);
-                }
-            } else if (input.input_type === "select") {
-                let is_checked = false;
-                if (input.input_field.value !== "") {
-                    is_checked = true;
-                }
-    
-                if (!is_checked) {
-                    show_error(input, "empty_error");
-                    errors += 1;
-                } else {
-                    hide_error(input);
+                    hide_error(input.input_error);
                 }
             }
-        }
-        
+        } else if (input.input_type === "check") {
+            let checked = false;
+
+            // Check if any radio button in the group is checked
+            document.querySelectorAll(input.input_id).forEach((radio) => {
+                if (radio.checked) {
+                    checked = true;
+                }
+            });
+
+            if (!checked) {
+                show_error(input.input_error, input.error_msg["empty_error"]);
+                errors += 1;
+            } else {
+                hide_error(input.input_error);
+            }
+        } else if (input.input_type === "select") {
+            let is_checked = false;
+            if (input_field.value !== "") {
+                is_checked = true;
+            }
+
+            if (!is_checked) {
+                show_error(input.input_error, input.error_msg["empty_error"]);
+                errors += 1;
+            } else {
+                hide_error(input.input_error);
+            }
+        } 
     });
 
     // Move this outside of the loop
@@ -188,10 +192,19 @@ order_btn.addEventListener("click", (event) => {
 // Reset all inputs and error messages
 reset_btn.addEventListener("click", () => {
     inputs.forEach(input => {
-        if (input.input_type !== "none") {
-            hide_error(input);
+        let input_field = document.getElementById(input.input_id);
+        if (input_field) {
+            hide_error(input.input_error);
+        } else {
+            if (input.input_type === "check") {
+                hide_error(input.input_error);
+            }
         }
     })
+
+    document.getElementById("shipping_error").style.color = "transparent";
+    delivery_address.innerHTML = ``;
+    delivery_address.style.display = "none";
 })
 
 // Show delivery address when delivery is chosen
@@ -201,7 +214,6 @@ document.addEventListener("DOMContentLoaded", function() {
     delivery.addEventListener("change", function() {
         if (this.checked) {
             document.getElementById("shipping_error").style.color = "transparent";
-
             delivery_address.innerHTML = `
                 <legend>Delivery Address <span class="required-mark">*</span></legend>
                                 
@@ -217,44 +229,54 @@ document.addEventListener("DOMContentLoaded", function() {
                 <input type="text" name="Postcode" id="postcode" placeholder=" ex.1234">
                 <p class="sub-error" id="postcode_error">error msg</p>
             `;
-
-            inputs.forEach((input) => {
-                if (input.input_field = "delivery-enter") {
-                }
-            });
-
             delivery_address.style.display = "block";
+        }
+
+        if (autofill.checked) {
+            autofill.checked = false;
+            hide_error("same_as_delivery_error");
         }
     });
 
     pickup.addEventListener("change", function() {
         if (this.checked) {
             document.getElementById("shipping_error").style.color = "transparent";
+            delivery_address.innerHTML = ``;
             delivery_address.style.display = "none";
-    
-            inputs.forEach((input) => {
-                if (input.input_type === "delivery-enter") {
-                    // input.input_field.removeAttribute("name"); // Avoid the form submitting delivery address
-                }
-            });
         }
-
     });
 
     // Autofill billing address if user choose
-    // autofill.addEventListener("change", function() {
-    //     if (this.checked) {
-    //         document.getElementById("shipping_error").style.color = "transparent";
-    //         delivery_address.style.display = "none";
-    
-    //         inputs.forEach((input) => {
-    //             if (input.input_type === "delivery-enter") {
-    //                 // input.input_field.removeAttribute("name"); // Avoid the form submitting delivery address
-    //                 input.input_field.setAttribute("name", null);
-    //             }
-    //         });
-    //     }
+    autofill.addEventListener("change", function() {
+        if (this.checked) {
+            // Check if user has finished delivery address or not
+            if (document.getElementById("delivery").checked){
+                // When user choose delivery, check if they has finished
+                // delivery address or not
+                let street_address = document.getElementById("street_address");
+                let suburb_town = document.getElementById("suburb_town");
+                let postcode = document.getElementById("postcode");
 
-    // });
+                let billing_street_address = document.getElementById("billing_street_address");
+                let billing_suburb_town = document.getElementById("billing_suburb_town");
+                let billing_postcode = document.getElementById("billing_postcode");
+
+                console.log(postcode.value);
+
+                if (street_address.value.trim() !== "" && suburb_town.value.trim() !== "" && postcode.value.trim() !== "") {
+                    billing_street_address.value = street_address.value;
+                    billing_suburb_town.value = suburb_town.value;
+                    billing_postcode.value = postcode.value;
+                } else {
+                    // hide_error("same_as_delivery_error");
+                    show_error("same_as_delivery_error", "Please finish your delivery address");
+                }
+            } else {
+                show_error("same_as_delivery_error", "Please choose delivery first");
+            }
+        } else {
+            hide_error("same_as_delivery_error");
+        }
+    });
 
 });
