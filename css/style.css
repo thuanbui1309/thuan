@@ -7,19 +7,16 @@ description: this is the CSS file for Assignment 2
 */
 
 /* Fonts and variables settings */
-/* @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
-
 @import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Madimi+One&display=swap');
 
 :root{
-    --color-1: #FF0054;
+    /* --color-1: #FF0054; */
+    /* --color-1: #FD151B; */
     /* --color-1: #DA3E52; */
-    /* --color-1: #EC5F5F; */
+    --color-1: #ED254E;
     /* --color-1: #EF476F; */
     --color-2: #FDF7F7;
-    /* D90368 */
 }
 
 *{
@@ -101,7 +98,7 @@ header img{
     position: fixed;
     inset: 0;
     top: 65.5px;
-    background-color: rgba(0, 0, 0, 0.0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     display: none;
     z-index: 9997;
 }
@@ -703,6 +700,43 @@ fieldset {
 }
 /* End of order page */
 
+/* Feature page */
+.features-main .container{
+    width: min(100%, 950px);
+    margin-inline: auto;
+    margin-bottom: 40px;
+}
+
+.features__title{
+    margin-top: 125px;
+    margin-bottom: 25px;
+    font-size: 50px;
+    text-align: center;
+}
+
+.feature p{
+    margin-bottom: 11.5px;
+}
+
+.feature figure{
+    width: min(100%, 600px);
+    margin: 11.5px auto;
+}
+
+.feature figcaption{
+    text-align: center;
+}
+
+.feature img{
+    width: 100%;
+}
+
+.feature a{
+    text-decoration: underline;
+    color: var(--color-1);
+}
+/* End of feature page */
+
 /* Small phones */
 @media (min-width: 500px){
     /* Home Availables section */
@@ -720,7 +754,7 @@ fieldset {
 
 @media (min-width: 768px){
     *{
-        scroll-padding: 45px;
+        scroll-padding: 115px;
     }
 
     /* Home menu section */
