@@ -66,21 +66,7 @@
                         <p class="error" id="shipping_error">error msg</p>
                     </fieldset>
 
-                    <fieldset class="order__delivery-address" id="order__delivery-address">
-                        <!-- <legend>Delivery Address <span class="required-mark">*</span></legend>
-                            
-                        <label for="street_address">Address <span class="required-mark">*</span></label>
-                        <input type="text" name="Street-Address" id="street_address">
-                        <p class="sub-error" id="address_error">error msg</p>
-
-                        <label for="suburb_town">Suburb/Town<span class="required-mark"> *</span></label>
-                        <input type="text" name="Suburb-Town" id="suburb_town">
-                        <p class="sub-error" id="suburb_error">error msg</p>
-
-                        <label for="postcode">Postcode</label>
-                        <input type="text" name="Postcode" id="postcode" placeholder=" ex.1234">
-                        <p class="sub-error" id="postcode_error">error msg</p> -->
-                    </fieldset>
+                    <fieldset class="order__delivery-address" id="order__delivery-address"></fieldset>
                     
                     <fieldset class="order__billing-address" id="order__billing-address">
                         <legend>Billing Address<span class="required-mark"> *</span></legend>
@@ -89,7 +75,6 @@
                         <label for="same_as_delivery">Same as delivery address</label><br>
                         <p class="sub-error" id="same_as_delivery_error">error msg</p>
 
-                        
                         <label for="billing_street_address">Address<span class="required-mark"> *</span></label>
                         <input type="text" name="Billing-Street-Address" id="billing_street_address">
                         <p class="sub-error" id="billing_address_error">error msg</p>
@@ -121,6 +106,27 @@
                         <label for="pay-pickup">On Pickup</label><br>
 
                         <p class="error" id="payment_error">erros msg</p>
+                    </fieldset>
+
+                    <fieldset class="credit_cards">
+                        <legend>Credit card <span class="required-mark">*</span></legend>
+                            <div class="inner-cards">
+                                <input type="radio" name="cards[]" id="visa-card">
+                                <label class="inner-img" for="visa-card" id="visa-card-label"><img src="images/visa.png" alt="Visa Card"></label>
+
+                                <input type="radio" name="cards[]" id="master-card">
+                                <label class="inner-img" for="master-card" id="master-card-label"><img src="images/master_card.png" alt="Master Card"></label>
+
+                                <input type="radio" name="cards[]" id="amex-card">
+                                <label class="inner-img" for="amex-card" id="amex-card-label"><img src="images/amex.png" alt="American Express Card"></label>
+                            </div>
+                            <div class="inner-content">
+                                <label for="card_number_input">Card Number <span class="required-mark">*</span></label><br>
+                                <input type="text" id="card_number_input" name="Name">
+                                <p class="error" id="card_number_error">error msg</p>
+                            </div>
+                        </details>
+                        <!-- <p class="error" id="name_error">error msg</p> -->
                     </fieldset>
                     
                     <details class="shopping__cart">

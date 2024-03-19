@@ -116,6 +116,44 @@ let inputs = [
         error_msg: {
             empty_error: "* Please choose payment method",
         }
+    },
+    {
+        input_id: "card_name_input",
+        input_error: "card_name_error",
+        input_type: "enter",
+        input_pattern: /[a-zA-Z ]{1,20}$/,
+        error_msg: {
+            empty_error: "",
+            wrong_format_error: ""
+        }
+    }
+];
+
+// List of cards
+let cards = [
+    {
+        card_length: 16,
+        card_error: "visa-card-label",
+        error_msg: {
+            empty_error: "* Please enter your Visa card number",
+            wrong_format_error: "* Remember Visa card number is 16 digits"
+        }
+    },
+    {
+        card_length: 16,
+        card_error: "master-card-label",
+        error_msg: {
+            empty_error: "* Please enter your MaterCard number",
+            wrong_format_error: "* Remember MasterCard number is 16 digits"
+        }
+    },
+    {
+        card_length: 15,
+        card_error: "amex-card-label",
+        error_msg: {
+            empty_error: "* Please enter your American Express card number",
+            wrong_format_error: "* Remember American Express card number is 15 digits"
+        }
     }
 ]
 
@@ -234,8 +272,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (autofill.checked) {
             autofill.checked = false;
-            hide_error("same_as_delivery_error");
         }
+        hide_error("same_as_delivery_error");
     });
 
     pickup.addEventListener("change", function() {
@@ -251,6 +289,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (this.checked) {
             // Check if user has finished delivery address or not
             if (document.getElementById("delivery").checked){
+
                 // When user choose delivery, check if they has finished
                 // delivery address or not
                 let street_address = document.getElementById("street_address");
@@ -267,16 +306,36 @@ document.addEventListener("DOMContentLoaded", function() {
                     billing_street_address.value = street_address.value;
                     billing_suburb_town.value = suburb_town.value;
                     billing_postcode.value = postcode.value;
+                    hide_error("same_as_delivery_error");
                 } else {
-                    // hide_error("same_as_delivery_error");
                     show_error("same_as_delivery_error", "Please finish your delivery address");
+                    this.checked = false;
                 }
             } else {
+                this.checked = false;
                 show_error("same_as_delivery_error", "Please choose delivery first");
             }
         } else {
             hide_error("same_as_delivery_error");
         }
     });
+});
 
+// Change 
+// Select all radio buttons with name "cards[]"
+const card_inputs = document.querySelectorAll('[name="cards[]"]');
+
+// Add event listener to each radio button
+card_inputs.forEach((card_input, index) => {
+    card_input.addEventListener("change", function() {
+        if (this.checked) {
+            document.getElementById(cards[index].card_error).style.backgroundColor = "#E7E7E7";
+        } else if (!this.checked) {
+            document.querySelectorAll('.inner-img').forEach(label => {
+                label.style.backgroundColor = "transparent";
+            });
+            document.getElementById(cards[index].card_error).style.backgroundColor = "white";
+            console.log(index);
+        }
+    });
 });

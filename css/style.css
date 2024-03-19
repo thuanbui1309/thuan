@@ -444,7 +444,6 @@ footer .social-medias{
 .home__location-address p span{
     color: var(--color-1);
 }
-
 /* End of Home page location section */
 /* End of home page */
 
@@ -574,10 +573,6 @@ fieldset {
     color: var(--color-1);
 }
 
-/* .order__delivery-address{
-    display: none;
-} */
-
 #order_form form *{
     font-weight: 100;
 }
@@ -614,6 +609,32 @@ fieldset {
     color: transparent;
     font-size: 10.5px;
     margin-bottom: 3.5px;  
+}
+
+.credit_cards .inner-cards{
+    display: flex;
+    justify-content: space-between;
+    margin-block: 5px;
+}
+
+.credit_cards .inner-cards > input{
+    display: none;
+}
+
+.credit_cards .inner-cards > label{
+    width: 33%;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.credit_cards .inner-cards > *:hover{
+    background-color: #E7E7E7;
+}
+
+.credit_cards .inner-cards > * > img{
+    width: 57%;
+    display: block;
+    margin: auto;
 }
 
 .shopping__cart-total{
