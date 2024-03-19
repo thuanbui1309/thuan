@@ -14,9 +14,9 @@ description: this is the CSS file for Assignment 2
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Madimi+One&display=swap');
 
 :root{
-    /* --color-1: #FF0054; */
+    --color-1: #FF0054;
     /* --color-1: #DA3E52; */
-    --color-1: #EC5F5F;
+    /* --color-1: #EC5F5F; */
     /* --color-1: #EF476F; */
     --color-2: #FDF7F7;
     /* D90368 */
@@ -455,11 +455,10 @@ footer .social-medias{
 }
 
 .registration_form {
+    margin-top: 125px;
     width: min(100%, 550px);
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 13px;
-    padding: 25px;
+    margin-inline: auto;
+    margin-bottom: 30px;
 }
 
 .required-mark {
@@ -614,7 +613,7 @@ fieldset {
 .credit_cards .inner-cards{
     display: flex;
     justify-content: space-between;
-    margin-block: 5px;
+    margin-block: 10px;
 }
 
 .credit_cards .inner-cards > input{
@@ -627,8 +626,11 @@ fieldset {
     border-radius: 15px;
 }
 
+#visa-card:checked ~ #visa-card-label,
+#master-card:checked ~ #master-card-label,
+#amex-card:checked ~ #amex-card-label,
 .credit_cards .inner-cards > *:hover{
-    background-color: #E7E7E7;
+    background-color: #F1F3FB;
 }
 
 .credit_cards .inner-cards > * > img{
@@ -700,26 +702,6 @@ fieldset {
     font-size: 18px;
 }
 /* End of order page */
-
-
-/* 
-    Media Queries:
-    To support responsive design, I
-    use media queries to flex in each
-    screen sizes.
-
-    There are 5 breakpoints in our website:
-    1. min-width:  376px => Small phone
-    2. min-width:  500px => Small tablet
-    3. min-width:  768px => Tablet/Ipad
-    4. min-width: 1025px => Laptop
-    5. min-width: 1441px => Desktop
-
-    My website is divided into 5 parts, corresponding to 5 breakpoints
-
-    I design my website from minimum size
-    and adjust it when the screen gets bigger.
-*/
 
 /* Small phones */
 @media (min-width: 500px){

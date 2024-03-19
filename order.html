@@ -99,35 +99,14 @@
 
                     <fieldset class="payment">
                         <legend>Payment method <span class="required-mark">*</span></legend>
-                        <input type="radio" id="online" name="Payment Method" value="Online">
-                        <label for="online">Online</label><br>
-
                         <input type="radio" id="pay-pickup" name="Payment Method" value="Pick-up">
                         <label for="pay-pickup">On Pickup</label><br>
-
+                        <input type="radio" id="online" name="Payment Method" value="Online">
+                        <label for="online">Online</label><br>
                         <p class="error" id="payment_error">erros msg</p>
                     </fieldset>
 
-                    <fieldset class="credit_cards">
-                        <legend>Credit card <span class="required-mark">*</span></legend>
-                            <div class="inner-cards">
-                                <input type="radio" name="cards[]" id="visa-card">
-                                <label class="inner-img" for="visa-card" id="visa-card-label"><img src="images/visa.png" alt="Visa Card"></label>
-
-                                <input type="radio" name="cards[]" id="master-card">
-                                <label class="inner-img" for="master-card" id="master-card-label"><img src="images/master_card.png" alt="Master Card"></label>
-
-                                <input type="radio" name="cards[]" id="amex-card">
-                                <label class="inner-img" for="amex-card" id="amex-card-label"><img src="images/amex.png" alt="American Express Card"></label>
-                            </div>
-                            <div class="inner-content">
-                                <label for="card_number_input">Card Number <span class="required-mark">*</span></label><br>
-                                <input type="text" id="card_number_input" name="Name">
-                                <p class="error" id="card_number_error">error msg</p>
-                            </div>
-                        </details>
-                        <!-- <p class="error" id="name_error">error msg</p> -->
-                    </fieldset>
+                    <fieldset class="credit_cards" id="credit_cards"></fieldset>
                     
                     <details class="shopping__cart">
                         <summary class="shopping__cart-total" id="shopping__cart-total">

@@ -4,7 +4,10 @@ const form = document.getElementById("order_form");
 const delivery_address = document.getElementById("order__delivery-address");
 const delivery = document.getElementById("delivery");
 const pickup = document.getElementById("pickup");
+const payment_pickup = document.getElementById("pay-pickup");
+const payment_online = document.getElementById("online");
 const autofill = document.getElementById("same_as_delivery");
+const credit_cards = document.getElementById("credit_cards");
 
 // List of inputs
 let inputs = [
@@ -118,13 +121,13 @@ let inputs = [
         }
     },
     {
-        input_id: "card_name_input",
-        input_error: "card_name_error",
+        input_id: "card_number_input",
+        input_error: "card_number_error",
         input_type: "enter",
-        input_pattern: /[a-zA-Z ]{1,20}$/,
+        input_pattern: /^[0-9]{16}$/,
         error_msg: {
-            empty_error: "",
-            wrong_format_error: ""
+            empty_error: "* Please enter your Visa card number",
+            wrong_format_error: "* Remember Visa card number is 16 digits"
         }
     }
 ];
@@ -132,24 +135,24 @@ let inputs = [
 // List of cards
 let cards = [
     {
-        card_length: 16,
-        card_error: "visa-card-label",
+        card_pattern: /^[0-9]{16}$/,
+        placeholder: "0000 0000 0000 0000",
         error_msg: {
             empty_error: "* Please enter your Visa card number",
             wrong_format_error: "* Remember Visa card number is 16 digits"
         }
     },
     {
-        card_length: 16,
-        card_error: "master-card-label",
+        card_pattern: /^[0-9]{16}$/,
+        placeholder: "0000 0000 0000 0000",
         error_msg: {
             empty_error: "* Please enter your MaterCard number",
             wrong_format_error: "* Remember MasterCard number is 16 digits"
         }
     },
     {
-        card_length: 15,
-        card_error: "amex-card-label",
+        card_pattern: /^[0-9]{15}$/,
+        placeholder: "0000 0000 0000 000",
         error_msg: {
             empty_error: "* Please enter your American Express card number",
             wrong_format_error: "* Remember American Express card number is 15 digits"
@@ -167,6 +170,20 @@ function show_error(input_error, error_msg) {
 function hide_error(input_error) {
     error_element = document.getElementById(input_error);
     error_element.style.color = "transparent";
+}
+
+// Update card information
+function update_card(index) {
+    hide_error("card_number_error");
+
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].input_id === "card_number_input") {
+            inputs[i].input_pattern = cards[index].card_pattern;
+            document.getElementById(inputs[i].input_id).placeholder = cards[index].placeholder;
+            inputs[i].error_msg["empty_error"] = cards[index].error_msg["empty_error"];
+            inputs[i].error_msg["wrong_format_error"] = cards[index].error_msg["wrong_format_error"];
+        }
+    }
 }
 
 // Validate form before submitting
@@ -224,6 +241,8 @@ order_btn.addEventListener("click", (event) => {
     // Move this outside of the loop
     if (errors === 0) {
         form.submit();
+    } else {
+        window.location.href = "#main__selected-cart";
     }
 });
 
@@ -243,11 +262,14 @@ reset_btn.addEventListener("click", () => {
     document.getElementById("shipping_error").style.color = "transparent";
     delivery_address.innerHTML = ``;
     delivery_address.style.display = "none";
+
+    document.getElementById("payment_error").style.color = "transparent";
+    credit_cards.innerHTML = ``;
+    credit_cards.style.display = "none";
 })
 
 // Show delivery address when delivery is chosen
 document.addEventListener("DOMContentLoaded", function() {
-    
     // Show delivery address if user choose
     delivery.addEventListener("change", function() {
         if (this.checked) {
@@ -319,23 +341,39 @@ document.addEventListener("DOMContentLoaded", function() {
             hide_error("same_as_delivery_error");
         }
     });
-});
 
-// Change 
-// Select all radio buttons with name "cards[]"
-const card_inputs = document.querySelectorAll('[name="cards[]"]');
-
-// Add event listener to each radio button
-card_inputs.forEach((card_input, index) => {
-    card_input.addEventListener("change", function() {
+    // Add event listener to each radio button
+    payment_online.addEventListener("change", function() {
         if (this.checked) {
-            document.getElementById(cards[index].card_error).style.backgroundColor = "#E7E7E7";
-        } else if (!this.checked) {
-            document.querySelectorAll('.inner-img').forEach(label => {
-                label.style.backgroundColor = "transparent";
-            });
-            document.getElementById(cards[index].card_error).style.backgroundColor = "white";
-            console.log(index);
+            document.getElementById("payment_error").style.color = "transparent";
+            credit_cards.innerHTML = `
+                <legend>Credit card <span class="required-mark">*</span></legend>
+                <div class="inner-cards">
+                    <input type="radio" name="cards[]" value="Visa" id="visa-card" onclick="update_card(0)" checked>
+                    <label class="inner-img" for="visa-card" id="visa-card-label"><img src="images/visa.png" alt="Visa Card"></label>
+
+                    <input type="radio" name="cards[]" value="MasterCard" id="master-card" onclick="update_card(1)" >
+                    <label class="inner-img" for="master-card" id="master-card-label"><img src="images/master_card.png" alt="Master Card"></label>
+
+                    <input type="radio" name="cards[]" value="American Express" id="amex-card" onclick="update_card(2)">
+                    <label class="inner-img" for="amex-card" id="amex-card-label"><img src="images/amex.png" alt="American Express Card"></label>
+                </div>
+                <div class="inner-content">
+                    <label for="card_number_input">Card Number <span class="required-mark">*</span></label><br>
+                    <input type="text" id="card_number_input" name="Card Number" placeholder="0000 0000 0000 0000">
+                </div>
+                <p class="error" id="card_number_error">error msgaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+            `;
+            credit_cards.style.display = "block";
+            card_inputs = document.querySelectorAll('[name="cards[]"]');
+        }
+    });
+
+    payment_pickup.addEventListener("change", function() {
+        if (this.checked) {
+            document.getElementById("payment_error").style.color = "transparent";
+            credit_cards.innerHTML = ``;
+            credit_cards.style.display = "none";
         }
     });
 });

@@ -143,6 +143,8 @@ register_btn.addEventListener("click", (event) => {
     // Move this outside of the loop
     if (errors === 0) {
         form.submit();
+    } else {
+        window.location.href = "#registration_form";
     }
 });
 
