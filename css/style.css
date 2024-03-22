@@ -11,7 +11,7 @@ description: this is the CSS file for Assignment 2
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Madimi+One&display=swap');
 
 :root{
-    --color-1: #990F02;
+    --color-1: #DB162F;
     /* --color-1: #900D09; */
     /* --color-1: #A91B0D; */
     --color-2: #FDF7F7;
@@ -228,7 +228,6 @@ footer .social-medias{
     flex-direction: column;
     justify-content: center;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
 }
 
 .home__available-img {
