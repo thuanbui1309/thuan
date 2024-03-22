@@ -11,11 +11,9 @@ description: this is the CSS file for Assignment 2
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Madimi+One&display=swap');
 
 :root{
-    /* --color-1: #FF0054; */
-    /* --color-1: #FD151B; */
-    /* --color-1: #DA3E52; */
-    --color-1: #ED254E;
-    /* --color-1: #EF476F; */
+    --color-1: #990F02;
+    /* --color-1: #900D09; */
+    /* --color-1: #A91B0D; */
     --color-2: #FDF7F7;
 }
 
@@ -702,7 +700,7 @@ fieldset {
 
 /* Feature page */
 .features-main .container{
-    width: min(100%, 950px);
+    width: min(90%, 950px);
     margin-inline: auto;
     margin-bottom: 40px;
 }
