@@ -210,9 +210,8 @@ order_btn.addEventListener("click", (event) => {
         } else if (input.input_type === "check") {
             let checked = false;
 
-            // Check if any radio button in the group is checked
-            document.querySelectorAll(input.input_id).forEach((radio) => {
-                if (radio.checked) {
+                document.querySelectorAll(input.input_id).forEach((check) => {
+                if (check.checked) {
                     checked = true;
                 }
             });

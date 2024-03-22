@@ -12,8 +12,6 @@ description: this is the CSS file for Assignment 2
 
 :root{
     --color-1: #DB162F;
-    /* --color-1: #900D09; */
-    /* --color-1: #A91B0D; */
     --color-2: #FDF7F7;
 }
 
@@ -451,6 +449,7 @@ footer .social-medias{
 .registration_form {
     margin-top: 125px;
     width: min(100%, 550px);
+    min-height: calc(100vh - 125px);
     margin-inline: auto;
     margin-bottom: 30px;
 }

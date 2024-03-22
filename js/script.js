@@ -21,9 +21,10 @@ overlay.addEventListener("click", () => {
 
 // Enhancement 1: Highlight current page in menu bar
 const menu_links = document.querySelectorAll('nav a');
-let current_page = window.location.pathname.replace('/', '');
+let current_page = window.location.pathname.split("/")[window.location.pathname.split('/').length - 1];
 
 menu_links.forEach( link => {
+    console.log(current_page);
     if(link.getAttribute('href') === current_page) {
         link.classList.add('active');
     }
