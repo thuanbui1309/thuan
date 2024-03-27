@@ -54,11 +54,11 @@
                     To achieve it, the idea is detecting the URL of current web page, and then compare it with all links in the menu bar. The link that matches current web page will be highlighted.
                 </p>
                 <p>
-                    My implementation involves 2 steps: First, I check the current web page using "window" object. Secondly, I get all the links on navigation bar with "querySelectorAll". The link that match current page's URL will have a different color.
+                    My implementation involves 2 steps: First, I check the current web page using "window" object. Secondly, I get all the links on navigation bar with "querySelectorAll". The link that match current page's URL will have a different color. As menu bar is implemented in all pages, you can view this feature during all web pages.
                 </p>
                 <figure>
                     <img src="images/feature-1.png" alt="Feature 1">
-                    <figcaption>My JavaScript's implementation</figcaption>
+                    <figcaption>Current page is highlighted</figcaption>
                 </figure>
             </section>
 
@@ -75,7 +75,7 @@
                 </p>
                 <figure>
                     <img src="images/feature-2.png" alt="Feature 2">
-                    <figcaption>Implementing autofill</figcaption>
+                    <figcaption>Billing address is autofilled</figcaption>
                 </figure>
             </section>
 
@@ -88,7 +88,7 @@
                     To achieve it, the idea is relatively similar to enhancement 2, as I also make changes to some elements when user choose something(in this case is their prefer credit card). The different is instead of filling the form, the code now adjust some attribute like placeholder or pattern, so the validation works properly with any of 3 cards.
                 </p>
                 <p>
-                    The code for this enhancement involves a function that will automatically update the cart number's conditions(length, pattern,..) when a credit card is chosen. Each credit cart will have a specific value associated with it, ensuring the conditions match with chosen card. This part can only be seen when user choose pay online. If they don't, the HTML code for this part will not be created, avoiding card number filed is submitted. You can find the actual implementation here: <a href="order.html#payment-enhc">Feature 3 Implementation</a>
+                    The code for this enhancement involves a function that will automatically update the cart number's conditions(length, pattern,..) when a credit card is chosen. Each credit cart will have a specific value associated with it, ensuring the conditions match with chosen card. This part can only be seen when user choose pay online. If they don't, the HTML code for this part will not be created, avoiding card number filed is submitted. You can see the actual implementation here: <a href="order.html#payment-enhc">Feature 3 Implementation</a>
                 </p>
                 <figure>
                     <img src="images/feature-3.png" alt="Feature 3">

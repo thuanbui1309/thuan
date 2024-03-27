@@ -23,9 +23,15 @@ overlay.addEventListener("click", () => {
 const menu_links = document.querySelectorAll('nav a');
 let current_page = window.location.pathname.split("/")[window.location.pathname.split('/').length - 1];
 
-menu_links.forEach( link => {
-    console.log(current_page);
-    if(link.getAttribute('href') === current_page) {
-        link.classList.add('active');
-    }
-});
+// To handle the case when index.html is open automatically
+if (current_page === "") {
+    menu_links[0].classList.add('active');
+}  else {
+    menu_links.forEach( link => {
+        if(link.getAttribute('href') === current_page) {
+            link.classList.add('active');
+        }
+    })
+};
+
+    

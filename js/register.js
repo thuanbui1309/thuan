@@ -44,6 +44,16 @@ let inputs = [
             wrong_format_error: "* You must enter a valid email"
         }
     },
+    {
+        input_id: "register_postcode",
+        input_error: "register_postcode_error",
+        input_type: "enter",
+        input_pattern: /^[0-9]{4}$/,
+        error_msg: {
+            empty_error: "* Please enter your postcode",
+            wrong_format_error: "* This postcocde is not valid"
+        }
+    },
         {
         input_id: 'input[name="Gender"]',
         input_error: "gender_error",

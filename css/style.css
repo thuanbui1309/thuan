@@ -313,12 +313,20 @@ footer .social-medias{
 
 .order {
     font-size: 14px;
-    width: max-content  ;
+    width: max-content;
     background-color: var(--color-1);
     padding: 7px 14px;
     border-radius: 20px;
+    border: 2px solid var(--color-1);
     color: white;
     cursor: pointer;
+    animation: all 1s ease;
+}
+
+.order:hover{
+    background-color: white;
+    border: 2px solid var(--color-1);
+    color: var(--color-1);
 }
 
 .home__dish-img {
@@ -725,6 +733,7 @@ fieldset {
 
 .feature img{
     width: 100%;
+    border: 1px solid black;
 }
 
 .feature a{
