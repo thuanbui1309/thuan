@@ -39,7 +39,7 @@ ol{
 }
 
 .container{
-    width: 90%;
+    width: 93%;
     margin: auto;
 }
 
@@ -69,8 +69,13 @@ ol{
 }
 
 .header__logo{
-    color: var(--color-1);
-    font-size: 25px;
+    display: flex;
+    align-items: center;
+    width: clamp(100px, 15%, 170px);
+}
+
+.header__logo img{
+    width: 100%;
 }
 
 .header__mobile {
