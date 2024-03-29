@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- 
+        Header remains the same in all pages
+        Support responsive in mobile and laptop
+     -->
     <header>
         <div class="header__laptop">
             <div class="container flex">
@@ -42,13 +46,28 @@
         </div>
     </header>
 
+    <!-- 
+        - This page is used for order
+        - Only allow make an order when at least 1 product is chosen
+     -->
     <main>
+        <!-- 
+            Showing this part when user haven't choose any products
+         -->
         <section class="main__empty-cart" id="main__empty-cart">
             <h1>Your Cart</h1>
             <p>Your cart is currently empty.</p>
             <a href="index.html#home__dishes">Click here to continue shopping.</a>
         </section>
 
+        <!-- 
+            - Showing this part when user have picked at least 1 product
+            - Containing a form used for ordering
+            - Some parts will only be rendered by JavaScript when user
+            choose, such as delivery, online delivery,...
+            - Each part of input will have an error-msg, which will be displayed
+            if entered data is not valid
+         -->
         <section class="main__selected-cart" id="main__selected-cart">
             <div class="container">
                 <h1 class="order__title">My Order</h1>
@@ -66,7 +85,12 @@
                         <p class="error" id="shipping_error">error msg</p>
                     </fieldset>
 
-                    <fieldset class="order__delivery-address" id="order__delivery-address"></fieldset>
+                    <fieldset class="order__delivery-address" id="order__delivery-address">
+                        <!-- 
+                            - Used for delivery address
+                            - Only be rendered when user choose delivery
+                        -->
+                    </fieldset>
                     
                     <fieldset class="order__billing-address" id="order__billing-address">
                         <legend>Billing Address<span class="required-mark"> *</span></legend>
@@ -86,7 +110,6 @@
                         <label for="billing_postcode">Postcode<span class="required-mark"> *</span></label>
                         <input type="text" name="Billing Postcode" id="billing_postcode" placeholder=" ex.1234">
                         <p class="sub-error" id="billing_postcode_error">error msg</p>
-                        
                     </fieldset>
 
                     <label for="phone-number">Contact Number<span class="required-mark"> *</span></label><br>
@@ -106,7 +129,12 @@
                         <p class="error" id="payment_error">erros msg</p>
                     </fieldset>
 
-                    <fieldset class="credit_cards" id="credit_cards"></fieldset>
+                    <fieldset class="credit_cards" id="credit_cards">
+                        <!-- 
+                            - Used for entering online payment details
+                            - Only be rendered when user choose payment online
+                         -->
+                    </fieldset>
                     
                     <details class="shopping__cart">
                         <summary class="shopping__cart-total" id="shopping__cart-total">
@@ -125,6 +153,7 @@
         </section>
     </main>
 
+    <!-- Footer remains the same in all pages -->
     <footer>
         <div class="container flex">
             <a href="index.html" class="footer-logo">Sweet Life</a>

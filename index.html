@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- 
+        - Header stays the same in all pages
+        - 2 versions are used, 1 for small and 1 for larger screen
+    -->
     <header>
         <div class="header__laptop">
             <div class="container flex">
@@ -42,7 +46,12 @@
         </div>
     </header>
 
+    <!-- 
+        - Index page contains different sections
+        - Each section cover 1 piece of content like menu, history,....
+     -->
     <main class="main-index">
+        <!-- 1st section: Shop introduction -->
         <div class="container">
             <section class="home__hero-section">
                 <div class="home__hero-img">
@@ -56,6 +65,7 @@
             </section>
         </div>
 
+        <!-- 2nd section: Available types of ice cream -->
         <section class="home__availables-section" id="home__availables-section">
             <h2>Ice Cream <span>Variants</span></h2>
             <div class="container">
@@ -95,6 +105,11 @@
             </div>
         </section>
 
+        <!-- 
+            - 3rd section: Shop menu
+            - The content for this page will be rendered
+            using JavaScript
+         -->
         <section class="home__menu-section" id="home__menu-section">
             <h2>Menu</h2>
             <div class="container">
@@ -104,6 +119,7 @@
             </div>
         </section>
 
+        <!-- 4th section: Shop history -->
         <section class="home__history-section">
             <div class="container">
                 <div class="home__history-img">
@@ -121,6 +137,7 @@
             </div>
         </section>
 
+        <!-- 5th section: Shop location -->
         <section class="home__location-section">
             <div class="container">
                 <h2>Our shop <span>Location</span></h2>
@@ -209,6 +226,7 @@
         </section>
     </main>
 
+    <!-- Footer remains the same in all pages -->
     <footer>
         <div class="container flex">
             <a href="index.html" class="footer-logo">Sweet Life</a>

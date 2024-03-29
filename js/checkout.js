@@ -1,3 +1,8 @@
+// This file is used for checking out
+// Ordering form is validated (Only submit when all data is valid)
+// Error checking for each input field
+
+// Get needed 
 const order_btn = document.getElementById("order");
 const reset_btn = document.getElementById("reset");
 const form = document.getElementById("order_form");
@@ -12,11 +17,11 @@ const credit_cards = document.getElementById("credit_cards");
 // List of inputs
 let inputs = [
     {
-        input_id: "name_input",
-        input_error: "name_error",
-        input_type: "enter",
-        input_pattern: /[a-zA-Z ]{1,20}$/,
-        error_msg: {
+        input_id: "name_input", // ID of input field
+        input_error: "name_error", // ID of input error field
+        input_type: "enter", // Type of input, used for error checking
+        input_pattern: /[a-zA-Z ]{1,20}$/, // Input pattern
+        error_msg: { // Error messages to be displayed
             empty_error: "* Please enter your name",
             wrong_format_error: "* Only alpha letters are allowed"
         }
@@ -133,6 +138,7 @@ let inputs = [
 ];
 
 // List of cards
+// Similar to inputs but used for cards in online payment
 let cards = [
     {
         card_pattern: /^[0-9]{16}$/,
@@ -175,7 +181,6 @@ function hide_error(input_error) {
 // Update card information
 function update_card(index) {
     hide_error("card_number_error");
-
     for (let i = 0; i < inputs.length; i++) {
         if (inputs[i].input_id === "card_number_input") {
             inputs[i].input_pattern = cards[index].card_pattern;
@@ -192,9 +197,10 @@ order_btn.addEventListener("click", (event) => {
 
     let errors = 0;
     inputs.forEach((input) => {
-
+        // Get element by ID
         let input_field = document.getElementById(input.input_id);
 
+        // Validate based on conditions
         if (input.input_type === "enter" && input_field !== null) {
             if (input_field.value.length === 0) {
                 show_error(input.input_error, input.error_msg["empty_error"]);
@@ -237,7 +243,7 @@ order_btn.addEventListener("click", (event) => {
         } 
     });
 
-    // Move this outside of the loop
+    // Submit form if no errors are detected
     if (errors === 0) {
         form.submit();
     } else {
@@ -267,9 +273,10 @@ reset_btn.addEventListener("click", () => {
     credit_cards.style.display = "none";
 })
 
-// Show delivery address when delivery is chosen
+// Detect changes to update form
 document.addEventListener("DOMContentLoaded", function() {
     // Show delivery address if user choose
+    // Content only be added when user choose
     delivery.addEventListener("change", function() {
         if (this.checked) {
             document.getElementById("shipping_error").style.color = "transparent";
@@ -297,6 +304,7 @@ document.addEventListener("DOMContentLoaded", function() {
         hide_error("same_as_delivery_error");
     });
 
+    // Remove delivery HTML when user choose pickup
     pickup.addEventListener("change", function() {
         if (this.checked) {
             document.getElementById("shipping_error").style.color = "transparent";
@@ -310,18 +318,13 @@ document.addEventListener("DOMContentLoaded", function() {
         if (this.checked) {
             // Check if user has finished delivery address or not
             if (document.getElementById("delivery").checked){
-
-                // When user choose delivery, check if they has finished
-                // delivery address or not
+                // When user choose delivery, check if they has finished delivery address or not
                 let street_address = document.getElementById("street_address");
                 let suburb_town = document.getElementById("suburb_town");
                 let postcode = document.getElementById("postcode");
-
                 let billing_street_address = document.getElementById("billing_street_address");
                 let billing_suburb_town = document.getElementById("billing_suburb_town");
                 let billing_postcode = document.getElementById("billing_postcode");
-
-                console.log(postcode.value);
 
                 if (street_address.value.trim() !== "" && suburb_town.value.trim() !== "" && postcode.value.trim() !== "") {
                     billing_street_address.value = street_address.value;
@@ -333,10 +336,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     this.checked = false;
                 }
             } else {
+                // IF user havent's finished delivery address, display error to warn them
                 this.checked = false;
                 show_error("same_as_delivery_error", "Please choose delivery first");
             }
         } else {
+            // Hide all existing errors
             hide_error("same_as_delivery_error");
         }
     });
@@ -361,13 +366,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     <label for="card_number_input">Card Number <span class="required-mark">*</span></label><br>
                     <input type="text" id="card_number_input" name="Card Number" placeholder="0000 0000 0000 0000">
                 </div>
-                <p class="error" id="card_number_error">error msgaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                <p class="error" id="card_number_error">error msg</p>
             `;
             credit_cards.style.display = "block";
             card_inputs = document.querySelectorAll('[name="cards[]"]');
         }
     });
 
+    // Update cards information
     payment_pickup.addEventListener("change", function() {
         if (this.checked) {
             document.getElementById("payment_error").style.color = "transparent";

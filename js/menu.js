@@ -1,4 +1,9 @@
-// Render products on menu
+// This file is used to render menu in home page
+// Products are stored in JSON
+// All products in menu will be rendered by JS when home page is opened
+// Chosen product will be stored in session storage for checkout
+
+// List of products
 let products = [
     {
         product_name: "Pink Lava Scoop",
@@ -70,6 +75,7 @@ products.forEach((product, index) => {
 });
 
 // Add selected product to shopping cart
+// Data is stored in session storage
 let cart = JSON.parse(sessionStorage.getItem("cart"));
 
 for (let i = 0; i < products.length; i++) {

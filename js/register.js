@@ -1,3 +1,8 @@
+// This file is used for validating registration form
+// Input field, along with pattern and error message will be stored in JSON
+// Only allowing submit when no errors are detected
+
+// Get needed elements
 const register_btn = document.getElementById("register");
 const reset_btn = document.getElementById("reset");
 const form = document.getElementById("register_form");
@@ -5,11 +10,11 @@ const form = document.getElementById("register_form");
 // List of inputs
 let inputs = [
     {
-        input_id: "username",
-        input_error: "username_error",
-        input_type: "enter",
-        input_pattern: /^[a-zA-Z0-9_]{4,16}$/,
-        error_msg: {
+        input_id: "username", // ID of input field
+        input_error: "username_error", // ID of error msg for this input field
+        input_type: "enter", // Type of input, used for validation
+        input_pattern: /^[a-zA-Z0-9_]{4,16}$/, // Pattern, only for entering input
+        error_msg: { // Error messages to be displayed for this input
             empty_error: "* Please enter your username",
             wrong_format_error: "* Your username should be between 4 and 16 characters"
         }
@@ -94,12 +99,18 @@ function hide_error(input_error) {
 
 // Validate form before submitting
 register_btn.addEventListener("click", (event) => {
+    // Prevent the form from auto submitting
     event.preventDefault();
 
     let errors = 0;
     inputs.forEach((input) => {
+        // Get element by ID
         let input_field = document.getElementById(input.input_id);
 
+        // Validating data
+        // Different types of input will have different conditions to check
+        // For example, checking empty and pattern with entered data
+        // Stored errors and show error message when any error is detected
         if (input.input_type === "enter") {
             if (input_field.value.length === 0) {
                 show_error(input.input_error, input.error_msg["empty_error"]);
@@ -155,7 +166,8 @@ register_btn.addEventListener("click", (event) => {
         }
     });
 
-    // Move this outside of the loop
+    // Submit form is no errors are detected
+    // Else, return to form
     if (errors === 0) {
         form.submit();
     } else {
