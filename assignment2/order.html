@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Order">
+    <meta name="author"      content="Bui Minh Thuan">
+    <title>Order</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 
+        Header remains the same in all pages
+        Support responsive in mobile and laptop
+     -->
+    <header>
+        <div class="header__laptop">
+            <div class="container flex">
+                <a href="index.html" class="header__logo"><img src="images/logo.png" alt="logo"></a>
+                <nav>
+                    <ol class="flex header__laptop-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="order.html">Order</a></li>
+                        <li><a href="features.html">Features</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="header__mobile">
+            <div class="container flex">
+                <a href="index.html" class="header__logo"><img src="images/logo.png" alt="logo"></a>
+                <img src="images/header-menu.png" alt="menu bar for header in small screen" id="header__menu-bar">
+                <div class="overlay" id="overlay">
+                    <nav>
+                        <ol class="header__mobile-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="order.html">Order</a></li>
+                            <li><a href="features.html">Features</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 
+        - This page is used for order
+        - Only allow make an order when at least 1 product is chosen
+     -->
+    <main>
+        <!-- 
+            Showing this part when user haven't choose any products
+         -->
+        <section class="main__empty-cart" id="main__empty-cart">
+            <h1>Your Cart</h1>
+            <p>Your cart is currently empty.</p>
+            <a href="index.html#home__dishes">Click here to continue shopping.</a>
+        </section>
+
+        <!-- 
+            - Showing this part when user have picked at least 1 product
+            - Containing a form used for ordering
+            - Some parts will only be rendered by JavaScript when user
+            choose, such as delivery, online delivery,...
+            - Each part of input will have an error-msg, which will be displayed
+            if entered data is not valid
+         -->
+        <section class="main__selected-cart" id="main__selected-cart">
+            <div class="container">
+                <h1 class="order__title">My Order</h1>
+                <form action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php" method="POST" id="order_form">
+                    <label for="name_input">Name <span class="required-mark">*</span></label><br>
+                    <input type="text" id="name_input" name="Name">
+                    <p class="error" id="name_error">error msg</p>
+
+                    <fieldset class="shipping_method">
+                        <legend>Delivery or Pick Up <span class="required-mark">*</span></legend>
+                        <input type="radio" id="pickup" name="Shipping Method" value="Pick-up">
+                        <label for="pickup">Pick Up</label><br>
+                        <input type="radio" id="delivery" name="Shipping Method" value="Delivery">
+                        <label for="delivery">Delivery</label>
+                        <p class="error" id="shipping_error">error msg</p>
+                    </fieldset>
+
+                    <fieldset class="order__delivery-address" id="order__delivery-address">
+                        <!-- 
+                            - Used for delivery address
+                            - Only be rendered when user choose delivery
+                        -->
+                    </fieldset>
+                    
+                    <fieldset class="order__billing-address" id="order__billing-address">
+                        <legend>Billing Address<span class="required-mark"> *</span></legend>
+
+                        <input type="checkbox" id="same_as_delivery">
+                        <label for="same_as_delivery">Same as delivery address</label><br>
+                        <p class="sub-error" id="same_as_delivery_error">error msg</p>
+
+                        <label for="billing_street_address">Address<span class="required-mark"> *</span></label>
+                        <input type="text" name="Billing-Street-Address" id="billing_street_address">
+                        <p class="sub-error" id="billing_address_error">error msg</p>
+
+                        <label for="billing_suburb_town">Suburb/Town<span class="required-mark"> *</span></label>
+                        <input type="text" name="Billing-Suburb-Town" id="billing_suburb_town">
+                        <p class="sub-error" id="billing_suburb_error">error msg</p>
+
+                        <label for="billing_postcode">Postcode<span class="required-mark"> *</span></label>
+                        <input type="text" name="Billing Postcode" id="billing_postcode" placeholder=" ex.1234">
+                        <p class="sub-error" id="billing_postcode_error">error msg</p>
+                    </fieldset>
+
+                    <label for="phone-number">Contact Number<span class="required-mark"> *</span></label><br>
+                    <input type="text" name="Phone Number" id="phone-number" placeholder=" (000) 000 0000">
+                    <p class="error" id="phone_error">error msg</p>
+
+                    <label for="Email">Email <span class="required-mark">*</span></label><br>
+                    <input type="email" id="Email" name="Email" placeholder=" ex: myname@gmail.com">
+                    <p class="error" id="email_error">error msg</p>
+
+                    <fieldset class="payment" id="payment-enhc">
+                        <legend>Payment method <span class="required-mark">*</span></legend>
+                        <input type="radio" id="pay-pickup" name="Payment Method" value="Pick-up">
+                        <label for="pay-pickup">On Pickup</label><br>
+                        <input type="radio" id="online" name="Payment Method" value="Online">
+                        <label for="online">Online</label><br>
+                        <p class="error" id="payment_error">erros msg</p>
+                    </fieldset>
+
+                    <fieldset class="credit_cards" id="credit_cards">
+                        <!-- 
+                            - Used for entering online payment details
+                            - Only be rendered when user choose payment online
+                         -->
+                    </fieldset>
+                    
+                    <details class="shopping__cart">
+                        <summary class="shopping__cart-total" id="shopping__cart-total">
+                        </summary>
+                        <div class="shopping__cart-items" id="shopping__cart-items">
+                        </div>
+                    </details>
+
+                    <div id="order_details">
+                        <!-- 
+                            Contain details of order, total, amount of products
+                         -->
+                    </div>
+                    <div class="order__button">
+                        <input type= "submit" value="Order" id="order">
+                        &nbsp;
+                        <input type="reset" value="Reset" id="reset">
+                    </div>   
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer remains the same in all pages -->
+    <footer>
+        <div class="container flex">
+            <a href="index.html" class="footer-logo">Sweet Life</a>
+
+            <div class="social-medias">
+                <a href="https://www.facebook.com/callmeflyn1305/" class="social-media">
+                    <img src="images/facebook.png" alt="Shop Facebook">
+                </a>
+
+                <a href="https://www.instagram.com/buithuan_1309/" class="social-media">
+                    <img src="images/instagrram.png" alt="Shop Instagram">
+                </a>
+
+                <a href="mailto:buiminhthuan1314@gmail.com" class="social-media">
+                    <img src="images/email.png" alt="Shop Gmail">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/checkout.js"></script>
+    <script src="js/render-order.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

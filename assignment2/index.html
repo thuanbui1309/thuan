@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Home page">
+    <meta name="author"      content="Bui Minh Thuan">
+    <title>Sweet Life</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 
+        - Header stays the same in all pages
+        - 2 versions are used, 1 for small and 1 for larger screen
+    -->
+    <header>
+        <div class="header__laptop">
+            <div class="container flex">
+                <a href="index.html" class="header__logo"><img src="images/logo.png" alt="logo"></a>
+                <nav>
+                    <ol class="flex header__laptop-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="order.html">Order</a></li>
+                        <li><a href="features.html">Features</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="header__mobile">
+            <div class="container flex">
+                <a href="index.html" class="header__logo"><img src="images/logo.png" alt="logo"></a>
+                <img src="images/header-menu.png" alt="menu bar for header in small screen" id="header__menu-bar">
+                <div class="overlay" id="overlay">
+                    <nav>
+                        <ol class="header__mobile-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="order.html">Order</a></li>
+                            <li><a href="features.html">Features</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 
+        - Index page contains different sections
+        - Each section cover 1 piece of content like menu, history,....
+     -->
+    <main class="main-index">
+        <!-- 1st section: Shop introduction -->
+        <div class="container">
+            <section class="home__hero-section">
+                <div class="home__hero-img">
+                    <img src="images/home-hero.jpg" alt="Our feature ice cream">
+                </div>
+                <div class="home__hero-introduction">
+                    <h1><span>Sweet Life'</span> Fresh Ice Creams.</h1>
+                    <p>Creamy delights churned with fresh ingredients, crafting irresistible flavors that tantalize taste buds with every scoop.</p>
+                    <a href="#home__dishes">Try it now</a>
+                </div>
+            </section>
+        </div>
+
+        <!-- 2nd section: Available types of ice cream -->
+        <section class="home__availables-section" id="home__availables-section">
+            <h2>Ice Cream <span>Variants</span></h2>
+            <div class="container">
+                <div class="home__availables">
+                    <article class="home__available">
+                        <div class="home__available-img">
+                            <img src="images/ice-cone.png" alt="Ice cone">
+                        </div>
+                        <h3>Ice Cone</h3>
+                        <p>Crisp cones filed with creamy delights</p>
+                    </article>
+    
+                    <article class="home__available">
+                        <div class="home__available-img">
+                            <img src="images/scoop.png" alt="Scoop">
+                        </div>
+                        <h3>Scoop</h3>
+                        <p>Indulgent scoops of ice cream joy</p>
+                    </article>
+    
+                    <article class="home__available">
+                        <div class="home__available-img">
+                            <img src="images/smoothie.png" alt="Ice cone">
+                        </div>
+                        <h3>Smoothie</h3>
+                        <p>Fresh berries blended into smooth ict bliss</p>
+                    </article>
+    
+                    <article class="home__available">
+                        <div class="home__available-img">
+                            <img src="images/serving.png" alt="Ice cone">
+                        </div>
+                        <h3>Serving</h3>
+                        <p>Silky waves of velvety ice cream</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            - 3rd section: Shop menu
+            - The content for this page will be rendered
+            using JavaScript
+         -->
+        <section class="home__menu-section" id="home__menu-section">
+            <h2>Menu</h2>
+            <div class="container">
+                <div class="home__dishes" id="home__dishes">
+                    <!-- The content for this part will be rendered by Javascript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 4th section: Shop history -->
+        <section class="home__history-section">
+            <div class="container">
+                <div class="home__history-img">
+                    <img src="images/home-director.png" alt="Shop director">
+                </div>
+
+                <div class="home__history-content">
+                    <h2>Taking Ice Cream To New <span>Heights</span></h2>
+                    <p>
+                        Born in 1950s, Sweet Life is proud of being one of the leading names in the Ice Cream Industry. We believe Ice Cream is not only a snack for children, but also an essential part of modern cuisine. Our goal is to combine modern developing techniques with old school flavors to bring the best experiences to our beloved customers.
+                        <br>
+                        <span>Mr.Bianco - Director of Sweet Life</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5th section: Shop location -->
+        <section class="home__location-section">
+            <div class="container">
+                <h2>Our shop <span>Location</span></h2>
+
+                <div class="home__locations">
+                    <article class="home__location">
+                        <div class="home__location-img">
+                            <img src="images/home-shop.jpg" alt="Shop location 1">
+                        </div>
+    
+                        <div class="home__location-address">
+                            <h3 class="home__location-street__address">
+                                10 Willow Lane, London, NW1 5BT, United Kingdom
+                            </h3>
+                            <hr>
+        
+                            <h4>Open Hours</h4>
+                            <p>
+                                Monday - Friday
+                                <br>
+                                <span>09.00 AM - 05:00 PM</span>
+                            </p>
+        
+                            <p>
+                                Saturday - Sunday
+                                <br>
+                                <span>10.00 AM - 08:00 PM</span>
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="home__location">
+                        <div class="home__location-img">
+                            <img src="images/home-shop-2.jpg" alt="Shop location 2">
+                        </div>
+    
+                        <div class="home__location-address">
+                            <h3 class="home__location-street__address">
+                                452 Oak Street, Springfield, IL 62701, USA
+                            </h3>
+                            <hr>
+        
+                            <h4>Open Hours</h4>
+                            <p>
+                                Monday - Friday
+                                <br>
+                                <span>09.00 AM - 05:00 PM</span>
+                            </p>
+        
+                            <p>
+                                Saturday - Sunday
+                                <br>
+                                <span>10.00 AM - 08:00 PM</span>
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="home__location">
+                        <div class="home__location-img">
+                            <img src="images/home-shop-3.jpg" alt="Shop location 3">
+                        </div>
+    
+                        <div class="home__location-address">
+                            <h3 class="home__location-street__address">
+                                27 Maple Avenue, Toronto, ON M4S 2J5, Canada
+                            </h3>
+                            <hr>
+        
+                            <h4>Open Hours</h4>
+                            <p>
+                                Monday - Friday
+                                <br>
+                                <span>09.00 AM - 05:00 PM</span>
+                            </p>
+        
+                            <p>
+                                Saturday - Sunday
+                                <br>
+                                <span>10.00 AM - 08:00 PM</span>
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer remains the same in all pages -->
+    <footer>
+        <div class="container flex">
+            <a href="index.html" class="footer-logo">Sweet Life</a>
+
+            <div class="social-medias">
+                <a href="https://www.facebook.com/callmeflyn1305/" class="social-media">
+                    <img src="images/facebook.png" alt="Shop Facebook">
+                </a>
+
+                <a href="https://www.instagram.com/buithuan_1309/" class="social-media">
+                    <img src="images/instagrram.png" alt="Shop Instagram">
+                </a>
+
+                <a href="mailto:buiminhthuan1314@gmail.com" class="social-media">
+                    <img src="images/email.png" alt="Shop Gmail">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

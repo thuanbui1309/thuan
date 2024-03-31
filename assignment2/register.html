@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Registration">
+    <meta name="author"      content="Bui Minh Thuan">
+    <title>Registration</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 
+        - Header stays the same in all pages
+        - Support 2 versions of header for small and large screen
+     -->
+    <header>
+        <div class="header__laptop">
+            <div class="container flex">
+                <a href="index.html" class="header__logo"><img src="images/logo.png" alt="logo"></a>
+                <nav>
+                    <ol class="flex header__laptop-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="order.html">Order</a></li>
+                        <li><a href="features.html">Features</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="header__mobile">
+            <div class="container flex">
+                <a href="index.html" class="header__logo"><img src="images/logo.png" alt="logo"></a>
+                <img src="images/header-menu.png" alt="menu bar for header in small screen" id="header__menu-bar">
+                <div class="overlay" id="overlay">
+                    <nav>
+                        <ol class="header__mobile-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="order.html">Order</a></li>
+                            <li><a href="features.html">Features</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 
+        - This page's main contains a form used for registration 
+        - Each part of input will have an error msg, only display
+        when entered data is not valid
+    -->
+    <main>
+        <div class="container">
+            <section class="registration_form" id="registration_form">
+                <h1 class="register__title">Register now</h1>
+                    <form action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php" method="POST" id="register_form">
+                        <label for="username">Username <span class="required-mark">*</span></label><br>
+                        <input type="text" id="username" placeholder=" 4 - 16  characters" name="Username">
+                        <p class="error" id="username_error">error msg</p>
+
+                        <label for="password">Password <span class="required-mark">*</span></label><br>
+                        <input type="password" id="password" placeholder=" At least 9 characters" name="Password">
+                        <p class="error" id="password_error">error msg</p>
+
+                        <label for="confirm-password">Confirm Password <span class="required-mark">*</span></label><br>
+                        <input type="password" id="confirm-password" name="Confirm Password">
+                        <p class="error" id="confirm_password_error">error msg</p>
+
+                        <label for="Email">Email <span class="required-mark">*</span></label><br>
+                        <input type="email" id="Email" name="Email" required
+                        placeholder=" ex: myname@gmail.com">
+                        <p class="error" id="email_error">error msg</p>
+
+                        <label for="register_postcode">Postcode<span class="required-mark"> *</span></label>
+                        <input type="text" name="Register Postcode" id="register_postcode" placeholder=" ex.1234">
+                        <p class="error" id="register_postcode_error">error msg</p>
+
+                        <fieldset class="user_gender">
+                            <legend>Gender <span class="required-mark">*</span></legend>
+                            <input type="radio" id="Male" name="Gender" value="Male" required="required">
+                            <label class="gender-label" for="Male">Male</label><br>
+                            <input type="radio" id="Female" name="Gender" value="Female" required="required">
+                            <label class="gender-label" for="Female">Female</label><br>
+                            <input type="radio" id="Not-say" name="Gender" value="Prefer Not To Say" required="required">
+                            <label class="gender-label" for="Not-say">Prefer not to say</label><br>
+                            <p class="error" id="gender_error">error msg</p>
+                        </fieldset>
+
+                        <label for="dietary">Dietary Preference <span class="required-mark">*</span></label><br>
+                        <select name="Dietary Preference" id="dietary" required>
+                            <option value="" selected disabled>Select your diet</option>		
+                            <option value="None">None</option>
+                            <option value="Vegan">Vegan</option>
+                            <option value="Gluten-Free">Gluten-Free</option>
+                            <option value="Dairy-Free">Dairy-Free</option>
+                        </select>
+                        <p class="error" id="dietary_error">error msg</p>
+
+                        <fieldset class="favorites__ice-cream">
+                            <legend>Favorite Ice Creams <span class="required-mark">*</span></legend>
+                            <div class="favorites">
+                                <div class="favorite">
+                                    <input type="checkbox" id="scoop" name="Favorites-Ice-Creams[]" value="scoop">
+                                    <label for="scoop">Scoop</label>
+                                </div>
+                                <div class="favorite">
+                                    <input type="checkbox" id="cone" name="Favorites-Ice-Creams[]" value="cone">
+                                    <label for="cone">Waffle Cone</label> 
+                                </div>
+                                <div class="favorite">
+                                    <input type="checkbox" id="cup" name="Favorites-Ice-Creams[]" value="cup">
+                                    <label for="cup">Cup</label>
+                                </div>
+                                <div class="favorite">
+                                    <input type="checkbox" id="sundae" name="Favorites-Ice-Creams[]" value="sundae">
+                                    <label for="sundae">Sundae</label>
+                                </div>
+                                <div class="favorite">
+                                    <input type="checkbox" id="all" name="Favorites-Ice-Creams[]" value="all">
+                                    <label for="all">All</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <p class="error" id="favorite_error">error msg</p>
+
+                        <div class="register__button">
+                            <input type= "submit" value="Register" id="register">
+                            &nbsp;
+                            <input type="reset" value="Reset" id="reset">
+                        </div>   
+                    </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer remains the same -->
+    <footer>
+        <div class="container flex">
+            <a href="index.html" class="footer-logo">Sweet Life</a>
+
+            <div class="social-medias">
+                <a href="https://www.facebook.com/callmeflyn1305/" class="social-media">
+                    <img src="images/facebook.png" alt="Shop Facebook">
+                </a>
+
+                <a href="https://www.instagram.com/buithuan_1309/" class="social-media">
+                    <img src="images/instagrram.png" alt="Shop Instagram">
+                </a>
+
+                <a href="mailto:buiminhthuan1314@gmail.com" class="social-media">
+                    <img src="images/email.png" alt="Shop Gmail">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/register.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

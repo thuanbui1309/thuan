@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Order">
+    <meta name="author"      content="Bui Minh Thuan">
+    <title>Features</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 
+        - Header remains the same in all pages
+        - Supports responsive
+     -->
+    <header>
+        <div class="header__laptop">
+            <div class="container flex">
+                <a href="index.html" class="header__logo"><img src="images/logo.png" alt="logo"></a>
+                <nav>
+                    <ol class="flex header__laptop-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="order.html">Order</a></li>
+                        <li><a href="features.html">Features</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="header__mobile">
+            <div class="container flex">
+                <a href="index.html" class="header__logo"><img src="images/logo.png" alt="logo"></a>
+                <img src="images/header-menu.png" alt="menu bar for header in small screen" id="header__menu-bar">
+                <div class="overlay" id="overlay">
+                    <nav>
+                        <ol class="header__mobile-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="order.html">Order</a></li>
+                            <li><a href="features.html">Features</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 
+        - This part contain features in website
+        - 1 section for each feature
+     -->
+    <main class="features-main">
+        <div class="container">
+            <h1 class="features__title">Features</h1>
+
+            <!-- Feature 1: Highlight current page -->
+            <section class="feature">
+                <h2>Feature 1: Highlight current page on menu</h2>
+                <p>
+                    Menu bar is a must-have part of every modern websites as it make it easier for users to navigate among web pages. In this assignment, my first enhancement is highlighting current web page in the menu bar, using JavaScript.
+                </p>
+                <p>
+                    To achieve it, the idea is detecting the URL of current web page, and then compare it with all links in the menu bar. The link that matches current web page will be highlighted.
+                </p>
+                <p>
+                    My implementation involves 2 steps: First, I check the current web page using "window" object. Secondly, I get all the links on navigation bar with "querySelectorAll". The link that match current page's URL will have a different color. As menu bar is implemented in all pages, you can view this feature during all web pages.
+                </p>
+                <figure>
+                    <img src="images/feature-1.png" alt="Feature 1">
+                    <figcaption>Current page is highlighted</figcaption>
+                </figure>
+            </section>
+
+            <!-- Feature 2: Autofill billing address -->
+            <section class="feature">
+                <h2>Feature 2: Autofill billing address</h2>
+                <p>
+                    When ordering online, user need to enter both living address and billing address, as one is used for delivery, and two is for billing purposes. However, many customers have the same living address as billing address, so force them to enter them twice is not a good idea. Therefore, for the second enhancement, I will allow user to autofill their billing address if they want in "Order" page, also using JavaScript. 
+                </p>
+                <p>
+                    To achieve it, the idea is pretty simple, as we only need to take whatever user entered before in the address section and put it billing section using "value". If user haven't finished address section, showing an error to let them aware.
+                </p>
+                <p>
+                    My implementation involves 2 steps when user choose "autofill": First, the code checks whether user had finished all fields in address section or nor. If they have finished, take values from these field and add to corresponding field in billing section. Inline error messages should be showed if there are any problems(empty field, wrong format,...). You can view it directly here: <a href="order.html#same_as_delivery">Feature 2 Implementation</a>
+                </p>
+                <figure>
+                    <img src="images/feature-2.png" alt="Feature 2">
+                    <figcaption>Billing address is autofilled</figcaption>
+                </figure>
+            </section>
+
+            <!-- Feature 3: Adaptive credit card length -->
+            <section class="feature">
+                <h2>Feature 3: Allowing different types of credit card</h2>
+                <p>
+                    Another important part of a online shopping website is payment. Nowadays, there are many payment methods, like banking, credit cards, or systems like Paypal, MoMo,.. A modern website need to be able to allow all users to make a purchase easily, regardless of the type of payment they have. The final enhancement of this assignment is remake a small part of a modern payment system, by allowing customers to pay with different credit cards.
+                </p>
+                <p>
+                    To achieve it, the idea is relatively similar to enhancement 2, as I also make changes to some elements when user choose something(in this case is their prefer credit card). The different is instead of filling the form, the code now adjust some attribute like placeholder or pattern, so the validation works properly with any of 3 cards.
+                </p>
+                <p>
+                    The code for this enhancement involves a function that will automatically update the cart number's conditions(length, pattern,..) when a credit card is chosen. Each credit cart will have a specific value associated with it, ensuring the conditions match with chosen card. This part can only be seen when user choose pay online. If they don't, the HTML code for this part will not be created, avoiding card number filed is submitted. You can see the actual implementation here: <a href="order.html#payment-enhc">Feature 3 Implementation</a>
+                </p>
+                <figure>
+                    <img src="images/feature-3.png" alt="Feature 3">
+                    <figcaption>Update chosen card</figcaption>
+                </figure>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer remains the same in all pages -->
+    <footer>
+        <div class="container flex">
+            <a href="index.html" class="footer-logo">Sweet Life</a>
+
+            <div class="social-medias">
+                <a href="https://www.facebook.com/callmeflyn1305/" class="social-media">
+                    <img src="images/facebook.png" alt="Shop Facebook">
+                </a>
+
+                <a href="https://www.instagram.com/buithuan_1309/" class="social-media">
+                    <img src="images/instagrram.png" alt="Shop Instagram">
+                </a>
+
+                <a href="mailto:buiminhthuan1314@gmail.com" class="social-media">
+                    <img src="images/email.png" alt="Shop Gmail">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
